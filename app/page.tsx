@@ -43,12 +43,16 @@ export default function CNTGLandingPage() {
         <div className="absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-[#F7F2EA] to-transparent" />
 
         <div className="relative mx-auto flex max-w-7xl flex-col px-6 py-8 lg:px-10">
-          <header className="relative flex items-center h-24">
-            <div className="absolute left-[20%] -translate-x-1/2 flex flex-col items-center">
-              <div className="font-serif text-[4rem] md:text-[5.5rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
-                CNTG
+          <header className="relative flex items-center h-28">
+            <div className="absolute left-[10%] -translate-x-1/2 flex flex-col items-center">
+              <div className="flex flex-col items-center w-full">
+                <div className="h-[3px] w-[102%] bg-[#6B0F1A] mb-1"></div>
+                <div className="font-serif text-[4rem] md:text-[5.5rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
+                  CNTG
+                </div>
+                <div className="h-[3px] w-[102%] bg-[#6B0F1A] mt-2 mb-2"></div>
               </div>
-              <div className="mt-1 text-xs tracking-[0.32em] text-[#4A4A4A] text-center whitespace-nowrap">
+              <div className="text-[0.65rem] md:text-xs tracking-[0.4em] text-[#6B0F1A] font-semibold whitespace-nowrap">
                 GROWTH PARTNERS
               </div>
             </div>
