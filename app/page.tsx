@@ -44,7 +44,7 @@ export default function CNTGLandingPage() {
 
         <div className="relative mx-auto flex max-w-7xl flex-col px-6 py-8 lg:px-10">
           <header className="relative flex items-center h-24">
-            <div className="absolute left-[30%] md:left-[40%] -translate-x-1/2 flex flex-col items-center">
+            <div className="absolute left-[20%] -translate-x-1/2 flex flex-col items-center">
               <div className="font-serif text-[4rem] md:text-[5.5rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
                 CNTG
               </div>
