@@ -43,21 +43,26 @@ export default function CNTGLandingPage() {
         <div className="absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-[#F7F2EA] to-transparent" />
 
         <div className="relative mx-auto flex max-w-7xl flex-col px-6 py-8 lg:px-10">
-          <header className="flex items-center justify-between">
-            <div className="flex flex-col items-center">
+          <header className="grid grid-cols-3 items-center">
+            <div className="flex justify-start">
+              {/* Sol boşluk */}
+            </div>
+            <div className="flex flex-col items-center justify-center -ml-16 md:-ml-24">
               <div className="font-serif text-[4rem] md:text-[5.5rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
                 CNTG
               </div>
-              <div className="mt-1 text-xs tracking-[0.32em] text-[#4A4A4A] text-center">
+              <div className="mt-1 text-xs tracking-[0.32em] text-[#4A4A4A] text-center whitespace-nowrap">
                 GROWTH PARTNERS
               </div>
             </div>
-            <a
-              href="#contact"
-              className="rounded-full border border-[#6B0F1A]/30 px-5 py-2 text-sm font-medium text-[#6B0F1A] transition hover:bg-[#6B0F1A] hover:text-white"
-            >
-              İletişime Geç
-            </a>
+            <div className="flex justify-end">
+              <a
+                href="#contact"
+                className="rounded-full border border-[#6B0F1A]/30 px-5 py-2 text-sm font-medium text-[#6B0F1A] transition hover:bg-[#6B0F1A] hover:text-white whitespace-nowrap"
+              >
+                İletişime Geç
+              </a>
+            </div>
           </header>
 
           <div className="grid min-h-[680px] items-center gap-10 py-20 lg:grid-cols-[1.1fr_0.9fr]">
