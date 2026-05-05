@@ -318,7 +318,7 @@ function ChatbotForm() {
   });
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const messagesEndRef = React.useRef<HTMLDivElement>(null);
+  const messagesContainerRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   // Her adım değişiminde input'a odaklan
@@ -327,6 +327,12 @@ function ChatbotForm() {
       inputRef.current?.focus();
     }
   }, [step, isTyping]);
+
+  React.useEffect(() => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
+  }, [messages, isTyping]);
 
   // EmailJS Gönderim Fonksiyonu
   const sendEmailNotification = async (data: typeof formData) => {
@@ -500,7 +506,10 @@ function ChatbotForm() {
   return (
     <div className="flex h-[380px] flex-col justify-between rounded-xl bg-black/10">
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div 
+        ref={messagesContainerRef}
+        className="flex-1 overflow-y-auto p-4 space-y-4 scroll-smooth"
+      >
         {messages.map((msg) => (
           <motion.div 
             key={msg.id}
@@ -526,7 +535,6 @@ function ChatbotForm() {
             </div>
           </motion.div>
         )}
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Input Area */}
