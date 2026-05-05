@@ -43,11 +43,8 @@ export default function CNTGLandingPage() {
         <div className="absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-[#F7F2EA] to-transparent" />
 
         <div className="relative mx-auto flex max-w-7xl flex-col px-6 py-8 lg:px-10">
-          <header className="grid grid-cols-3 items-center">
-            <div className="flex justify-start">
-              {/* Sol boşluk */}
-            </div>
-            <div className="flex flex-col items-center justify-center -ml-16 md:-ml-24">
+          <header className="relative flex items-center h-24">
+            <div className="absolute left-[30%] md:left-[40%] -translate-x-1/2 flex flex-col items-center">
               <div className="font-serif text-[4rem] md:text-[5.5rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
                 CNTG
               </div>
@@ -55,10 +52,10 @@ export default function CNTGLandingPage() {
                 GROWTH PARTNERS
               </div>
             </div>
-            <div className="flex justify-end">
+            <div className="w-full flex justify-end">
               <a
                 href="#contact"
-                className="rounded-full border border-[#6B0F1A]/30 px-5 py-2 text-sm font-medium text-[#6B0F1A] transition hover:bg-[#6B0F1A] hover:text-white whitespace-nowrap"
+                className="rounded-full border border-[#6B0F1A]/30 px-5 py-2 text-sm font-medium text-[#6B0F1A] transition hover:bg-[#6B0F1A] hover:text-white whitespace-nowrap z-10"
               >
                 İletişime Geç
               </a>
@@ -325,13 +322,6 @@ function ChatbotForm() {
   const [isTyping, setIsTyping] = useState(false);
   const messagesContainerRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
-
-  // Her adım değişiminde input'a odaklan (sadece sohbet başladıktan sonra)
-  React.useEffect(() => {
-    if (!isTyping && step !== 4 && step !== 6 && step > 0) {
-      inputRef.current?.focus({ preventScroll: true });
-    }
-  }, [step, isTyping]);
 
   React.useEffect(() => {
     if (messagesContainerRef.current) {
