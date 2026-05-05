@@ -321,10 +321,10 @@ function ChatbotForm() {
   const messagesContainerRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  // Her adım değişiminde input'a odaklan
+  // Her adım değişiminde input'a odaklan (sadece sohbet başladıktan sonra)
   React.useEffect(() => {
-    if (!isTyping && step !== 4 && step !== 6) {
-      inputRef.current?.focus();
+    if (!isTyping && step !== 4 && step !== 6 && step > 0) {
+      inputRef.current?.focus({ preventScroll: true });
     }
   }, [step, isTyping]);
 
