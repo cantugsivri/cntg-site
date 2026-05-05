@@ -1,6 +1,6 @@
 "use client";
 
-import React, { type ReactElement } from "react";
+import React, { useState, type ReactElement } from "react";
 import {
   ArrowRight,
   BarChart3,
@@ -44,7 +44,7 @@ export default function CNTGLandingPage() {
         <div className="relative mx-auto flex max-w-7xl flex-col px-6 py-8 lg:px-10">
           <header className="flex items-center justify-between">
             <div>
-              <div className="font-serif text-4xl font-bold tracking-wide text-[#6B0F1A]">
+              <div className="font-serif text-[4rem] md:text-[5.5rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
                 CNTG
               </div>
               <div className="mt-1 text-xs tracking-[0.32em] text-[#4A4A4A]">
@@ -197,7 +197,7 @@ export default function CNTGLandingPage() {
                 KİMLER İÇİN?
               </p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">
-                Horeca kanalında büyümek isteyen gıda markaları.
+                Hizmetlerini büyütmek isteyen firmalar.
               </h2>
             </div>
             <div className="space-y-4 text-white/80">
@@ -221,13 +221,40 @@ export default function CNTGLandingPage() {
             Projenizi konuşalım.
           </h2>
           <p className="mt-4 max-w-2xl text-white/75">
-            Saha satış, distribütör yapılanması veya yeni bölge büyümesi için
+            Saha ve iş gelişimi, distribütör yapılanması veya yeni bölge büyümesi için
             kısa bir ön görüşme yapabiliriz.
           </p>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <ContactItem icon={<Mail />} text="cantug.sivri@gmail.com" />
-            <ContactItem icon={<Phone />} text="+90 537 720 49 38" />
-            <ContactItem icon={<Linkedin />} text="LinkedIn / CNTG" />
+          
+          <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1.5fr]">
+            {/* Direct Contact Links */}
+            <div className="flex flex-col gap-4">
+              <a href="mailto:cantug.sivri@gmail.com" className="group">
+                <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10 transition group-hover:bg-white/20">
+                  <Mail className="h-5 w-5 text-[#D7B982]" />
+                  <span>cantug.sivri@gmail.com</span>
+                </div>
+              </a>
+              <a href="#" className="group" onClick={(e) => e.preventDefault()}>
+                <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10 transition group-hover:bg-white/20">
+                  <Linkedin className="h-5 w-5 text-[#D7B982]" />
+                  <span>LinkedIn / Yakında Eklenecek</span>
+                </div>
+              </a>
+            </div>
+
+            {/* AI Chatbot Area */}
+            <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-sm">
+              <div className="mb-4 flex items-center gap-3 border-b border-white/10 pb-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D7B982] text-[#6B0F1A] font-bold shadow-lg">
+                  AI
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white">CNTG Dijital Asistan</h3>
+                  <p className="text-xs text-white/60">Sizinle tanışmak için burada</p>
+                </div>
+              </div>
+              <ChatbotForm />
+            </div>
           </div>
         </div>
       </section>
@@ -268,6 +295,212 @@ function ContactItem({ icon, text }: ContactItemProps) {
     <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
       {React.cloneElement(icon, { className: "h-5 w-5 text-[#D7B982]" })}
       <span>{text}</span>
+    </div>
+  );
+}
+
+type Message = {
+  id: string;
+  role: "bot" | "user";
+  content: React.ReactNode;
+};
+
+function ChatbotForm() {
+  const [step, setStep] = useState(0);
+  const [formData, setFormData] = useState({
+    company: "",
+    name: "",
+    contact: "",
+    service: "",
+    otherService: ""
+  });
+  const [inputValue, setInputValue] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = React.useRef<HTMLDivElement>(null);
+
+  const initialMessage: Message = {
+    id: "init",
+    role: "bot",
+    content: (
+      <>
+        Değerli ziyaretçimiz, merhaba! Ben CNTG'nin dijital asistanı. Sizinle en doğru şekilde iletişime geçebilmemiz için kısaca tanışmak isterim. <br /><br />
+        <strong>Öncelikle, değerli şirketinizin adını öğrenebilir miyim lütfen?</strong>
+      </>
+    )
+  };
+
+  const [messages, setMessages] = useState<Message[]>([initialMessage]);
+
+  React.useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isTyping]);
+
+  const handleNext = () => {
+    if (inputValue.trim() === "") return;
+    
+    const userText = inputValue;
+    const currentStep = step;
+    
+    // Ziyaretçinin mesajını ekle
+    setMessages(prev => [...prev, { id: Date.now().toString(), role: "user", content: userText }]);
+    setInputValue("");
+    setIsTyping(true);
+
+    // Yarım saniye sonra botun cevabını ekle
+    setTimeout(() => {
+      let nextBotMessage: React.ReactNode = "";
+      
+      if (currentStep === 0) {
+        setFormData(prev => ({ ...prev, company: userText }));
+        nextBotMessage = (
+          <>
+            Çok teşekkür ederim. <strong>Sizin adınız ve soyadınız nedir acaba?</strong>
+          </>
+        );
+        setStep(1);
+      } else if (currentStep === 1) {
+        setFormData(prev => ({ ...prev, name: userText }));
+        nextBotMessage = (
+          <>
+            Tanıştığıma çok memnun oldum {userText} Bey/Hanım. <br /><br />
+            <strong>Size en kısa sürede ulaşabilmemiz için e-posta adresinizi veya telefon numaranızı rica edebilir miyim?</strong>
+          </>
+        );
+        setStep(2);
+      } else if (currentStep === 2) {
+        setFormData(prev => ({ ...prev, contact: userText }));
+        nextBotMessage = (
+          <>
+            İletişim bilgilerinizi kaydettim, çok naziksiniz. Son olarak, <strong>aşağıdaki hizmetlerimizden hangisiyle ilgilenmektesiniz?</strong>
+            <div className="mt-4 flex flex-col gap-2">
+              {[
+                "Sıfırdan Bölge ve Saha Yapılanması",
+                "Mevcut Ekip Verimlilik ve Gelişim Analizi",
+                "Distribütör Yapılandırması ve Yönetimi",
+                "Diğer"
+              ].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => handleServiceSelect(item)}
+                  className="rounded-lg bg-[#D7B982]/20 px-4 py-2 text-left text-sm font-medium text-[#D7B982] transition hover:bg-[#D7B982]/30"
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </>
+        );
+        setStep(3);
+      } else if (currentStep === 4) {
+        setFormData(prev => ({ ...prev, otherService: userText }));
+        nextBotMessage = (
+          <>
+            <strong>Bilgileriniz için çok teşekkür ederiz!</strong> İhtiyaçlarınızı kaydettik. Ekibimiz "Biz İletişime Geçelim Sizlerle" prensibiyle en kısa sürede verdiğiniz iletişim bilgileri üzerinden tarafınıza dönüş sağlayacaktır. İyi çalışmalar dileriz!
+          </>
+        );
+        setStep(5);
+      }
+
+      setMessages(prev => [...prev, { id: Date.now().toString() + "_bot", role: "bot", content: nextBotMessage }]);
+      setIsTyping(false);
+    }, 600);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleNext();
+    }
+  };
+
+  const handleServiceSelect = (service: string) => {
+    setMessages(prev => [...prev, { id: Date.now().toString(), role: "user", content: service }]);
+    setIsTyping(true);
+    
+    setTimeout(() => {
+      let nextBotMessage: React.ReactNode = "";
+      
+      if (service !== "Diğer") {
+        setFormData(prev => ({ ...prev, service }));
+        nextBotMessage = (
+          <>
+            <strong>Tercihiniz için çok teşekkür ederiz!</strong> İlgili ekibimiz "Biz İletişime Geçelim Sizlerle" prensibiyle en kısa sürede sizinle iletişime geçecektir. Güzel bir gün dileriz!
+          </>
+        );
+        setStep(5);
+      } else {
+        setFormData(prev => ({ ...prev, service }));
+        nextBotMessage = (
+          <>
+            Anlıyorum. <strong>Lütfen ilgilendiğiniz konuyu veya hizmeti bize kısaca yazabilir misiniz?</strong>
+          </>
+        );
+        setStep(4);
+      }
+      
+      setMessages(prev => [...prev, { id: Date.now().toString() + "_bot", role: "bot", content: nextBotMessage }]);
+      setIsTyping(false);
+    }, 600);
+  };
+
+  return (
+    <div className="flex h-[380px] flex-col justify-between rounded-xl bg-black/10">
+      {/* Messages Area */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((msg) => (
+          <motion.div 
+            key={msg.id}
+            initial={{ opacity: 0, y: 10 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+          >
+            <div 
+              className={`max-w-[85%] rounded-2xl p-4 text-sm leading-relaxed ${
+                msg.role === "user" 
+                  ? "bg-[#D7B982] text-[#6B0F1A] rounded-tr-sm" 
+                  : "bg-white/10 text-white rounded-tl-sm"
+              }`}
+            >
+              {msg.content}
+            </div>
+          </motion.div>
+        ))}
+        {isTyping && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
+            <div className="bg-white/10 text-white/50 rounded-2xl rounded-tl-sm px-4 py-3 text-sm">
+              Yazıyor...
+            </div>
+          </motion.div>
+        )}
+        <div ref={messagesEndRef} />
+      </div>
+
+      {/* Input Area */}
+      <div className="p-4 border-t border-white/10">
+        {step !== 3 && step !== 5 ? (
+          <div className="flex items-center gap-2">
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={handleKeyPress}
+              disabled={isTyping}
+              placeholder={isTyping ? "Lütfen bekleyin..." : "Yanıtınızı buraya yazın..."}
+              className="w-full rounded-xl bg-black/20 px-4 py-3 text-sm text-white placeholder-white/40 outline-none ring-1 ring-white/20 focus:ring-[#D7B982] disabled:opacity-50"
+            />
+            <button
+              onClick={handleNext}
+              disabled={inputValue.trim() === "" || isTyping}
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#D7B982] text-[#6B0F1A] transition hover:bg-white disabled:opacity-50"
+            >
+              <ArrowRight className="h-5 w-5" />
+            </button>
+          </div>
+        ) : step === 3 ? (
+          <div className="text-center text-xs text-white/50">Lütfen yukarıdaki seçeneklerden birini işaretleyin.</div>
+        ) : (
+          <div className="text-center text-xs text-white/50">Görüşme tamamlandı.</div>
+        )}
+      </div>
     </div>
   );
 }
