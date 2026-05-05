@@ -323,12 +323,6 @@ function ChatbotForm() {
   const messagesContainerRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  React.useEffect(() => {
-    if (messagesContainerRef.current) {
-      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
-    }
-  }, [messages, isTyping]);
-
   // EmailJS Gönderim Fonksiyonu
   const sendEmailNotification = async (data: typeof formData) => {
     // Buradaki ID'leri EmailJS panelinden alıp buraya yapıştırmanız gerekecek
@@ -374,8 +368,11 @@ function ChatbotForm() {
   const [messages, setMessages] = useState<Message[]>([initialMessage]);
 
   React.useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   }, [messages, isTyping]);
+
 
   const handleNext = () => {
     if (inputValue.trim() === "") return;
