@@ -4,6 +4,7 @@ import React, { useState, type ReactElement } from "react";
 import {
   ArrowRight,
   BarChart3,
+  Bot,
   CheckCircle2,
   Linkedin,
   Mail,
@@ -43,11 +44,11 @@ export default function CNTGLandingPage() {
 
         <div className="relative mx-auto flex max-w-7xl flex-col px-6 py-8 lg:px-10">
           <header className="flex items-center justify-between">
-            <div>
+            <div className="flex flex-col items-center">
               <div className="font-serif text-[4rem] md:text-[5.5rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
                 CNTG
               </div>
-              <div className="mt-1 text-xs tracking-[0.32em] text-[#4A4A4A]">
+              <div className="mt-1 text-xs tracking-[0.32em] text-[#4A4A4A] text-center">
                 GROWTH PARTNERS
               </div>
             </div>
@@ -245,8 +246,8 @@ export default function CNTGLandingPage() {
             {/* AI Chatbot Area */}
             <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-sm">
               <div className="mb-4 flex items-center gap-3 border-b border-white/10 pb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D7B982] text-[#6B0F1A] font-bold shadow-lg">
-                  AI
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D7B982] text-[#6B0F1A] shadow-lg">
+                  <Bot className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-white">CNTG Dijital Asistan</h3>
@@ -310,13 +311,53 @@ function ChatbotForm() {
   const [formData, setFormData] = useState({
     company: "",
     name: "",
-    contact: "",
+    email: "",
+    phone: "",
     service: "",
     otherService: ""
   });
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = React.useRef<HTMLDivElement>(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  // Her adım değişiminde input'a odaklan
+  React.useEffect(() => {
+    if (!isTyping && step !== 4 && step !== 6) {
+      inputRef.current?.focus();
+    }
+  }, [step, isTyping]);
+
+  // EmailJS Gönderim Fonksiyonu
+  const sendEmailNotification = async (data: typeof formData) => {
+    // Buradaki ID'leri EmailJS panelinden alıp buraya yapıştırmanız gerekecek
+    const SERVICE_ID = "service_akbu44d"; 
+    const TEMPLATE_ID = "template_bob9zex";
+    const PUBLIC_KEY = "shVNlL2HQr0qGqEwi";
+
+    try {
+      await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service_id: SERVICE_ID,
+          template_id: TEMPLATE_ID,
+          user_id: PUBLIC_KEY,
+          template_params: {
+            from_name: data.name,
+            company_name: data.company,
+            email_address: data.email,
+            phone_number: data.phone,
+            requested_service: data.service === "Diğer" ? data.otherService : data.service,
+            to_email: "cantug.sivri@gmail.com" // Sizin mailiniz
+          }
+        })
+      });
+      console.log("Email başarıyla gönderildi!");
+    } catch (error) {
+      console.error("Email gönderim hatası:", error);
+    }
+  };
 
   const initialMessage: Message = {
     id: "init",
@@ -363,12 +404,20 @@ function ChatbotForm() {
         nextBotMessage = (
           <>
             Tanıştığıma çok memnun oldum {userText} Bey/Hanım. <br /><br />
-            <strong>Size en kısa sürede ulaşabilmemiz için e-posta adresinizi veya telefon numaranızı rica edebilir miyim?</strong>
+            <strong>Size ulaşabilmemiz için e-posta adresinizi öğrenebilir miyim?</strong>
           </>
         );
         setStep(2);
       } else if (currentStep === 2) {
-        setFormData(prev => ({ ...prev, contact: userText }));
+        setFormData(prev => ({ ...prev, email: userText }));
+        nextBotMessage = (
+          <>
+            Teşekkür ederim. <strong>Son olarak iletişim için telefon numaranızı da rica edebilir miyim?</strong>
+          </>
+        );
+        setStep(3);
+      } else if (currentStep === 3) {
+        setFormData(prev => ({ ...prev, phone: userText }));
         nextBotMessage = (
           <>
             İletişim bilgilerinizi kaydettim, çok naziksiniz. Son olarak, <strong>aşağıdaki hizmetlerimizden hangisiyle ilgilenmektesiniz?</strong>
@@ -390,15 +439,18 @@ function ChatbotForm() {
             </div>
           </>
         );
-        setStep(3);
-      } else if (currentStep === 4) {
-        setFormData(prev => ({ ...prev, otherService: userText }));
+        setStep(4);
+      } else if (currentStep === 5) {
         nextBotMessage = (
           <>
-            <strong>Bilgileriniz için çok teşekkür ederiz!</strong> İhtiyaçlarınızı kaydettik. Ekibimiz "Biz İletişime Geçelim Sizlerle" prensibiyle en kısa sürede verdiğiniz iletişim bilgileri üzerinden tarafınıza dönüş sağlayacaktır. İyi çalışmalar dileriz!
+            <strong>Bilgileriniz için çok teşekkür ederiz!</strong> İhtiyaçlarınızı kaydettik. Ekibimiz "Biz İletişime Geçelim Sizlerle" prensibiyle en kısa sürede tarafınıza dönüş sağlayacaktır. İyi çalışmalar dileriz!
           </>
         );
-        setStep(5);
+        setStep(6);
+        // Step 6'ya geçerken mail gönderimini tetikle (OtherService bittiğinde)
+        const finalData = { ...formData, otherService: userText };
+        setFormData(finalData);
+        sendEmailNotification(finalData);
       }
 
       setMessages(prev => [...prev, { id: Date.now().toString() + "_bot", role: "bot", content: nextBotMessage }]);
@@ -420,13 +472,16 @@ function ChatbotForm() {
       let nextBotMessage: React.ReactNode = "";
       
       if (service !== "Diğer") {
-        setFormData(prev => ({ ...prev, service }));
         nextBotMessage = (
           <>
             <strong>Tercihiniz için çok teşekkür ederiz!</strong> İlgili ekibimiz "Biz İletişime Geçelim Sizlerle" prensibiyle en kısa sürede sizinle iletişime geçecektir. Güzel bir gün dileriz!
           </>
         );
-        setStep(5);
+        setStep(6);
+        // Step 6'ya geçerken mail gönderimini tetikle (Normal hizmet bittiğinde)
+        const finalData = { ...formData, service };
+        setFormData(finalData);
+        sendEmailNotification(finalData);
       } else {
         setFormData(prev => ({ ...prev, service }));
         nextBotMessage = (
@@ -434,7 +489,7 @@ function ChatbotForm() {
             Anlıyorum. <strong>Lütfen ilgilendiğiniz konuyu veya hizmeti bize kısaca yazabilir misiniz?</strong>
           </>
         );
-        setStep(4);
+        setStep(5);
       }
       
       setMessages(prev => [...prev, { id: Date.now().toString() + "_bot", role: "bot", content: nextBotMessage }]);
@@ -476,10 +531,11 @@ function ChatbotForm() {
 
       {/* Input Area */}
       <div className="p-4 border-t border-white/10">
-        {step !== 3 && step !== 5 ? (
+        {step !== 4 && step !== 6 ? (
           <div className="flex items-center gap-2">
             <input
               type="text"
+              ref={inputRef}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyPress}
@@ -495,7 +551,7 @@ function ChatbotForm() {
               <ArrowRight className="h-5 w-5" />
             </button>
           </div>
-        ) : step === 3 ? (
+        ) : step === 4 ? (
           <div className="text-center text-xs text-white/50">Lütfen yukarıdaki seçeneklerden birini işaretleyin.</div>
         ) : (
           <div className="text-center text-xs text-white/50">Görüşme tamamlandı.</div>
