@@ -4,7 +4,6 @@ import React, { useState, type ReactElement } from "react";
 import {
   ArrowRight,
   BarChart3,
-  Bot,
   CheckCircle2,
   Linkedin,
   Mail,
@@ -44,10 +43,10 @@ export default function CNTGLandingPage() {
 
         <div className="relative mx-auto flex max-w-7xl flex-col px-6 py-8 lg:px-10">
           <header className="relative flex items-center h-28">
-            <div className="absolute left-[10%] -translate-x-1/2 flex flex-col items-center">
+            <div className="absolute left-[10%] -translate-x-1/2 flex flex-col items-center lg:left-[20%]">
               <div className="flex flex-col items-center w-full">
                 <div className="h-[3px] w-[102%] bg-[#6B0F1A] mb-1"></div>
-                <div className="font-serif text-[4rem] md:text-[5.5rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
+                <div className="font-serif text-[4rem] md:text-[5.5rem] lg:text-[6rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
                   CNTG
                 </div>
                 <div className="h-[3px] w-[102%] bg-[#6B0F1A] mt-2 mb-2"></div>
@@ -252,8 +251,11 @@ export default function CNTGLandingPage() {
             {/* AI Chatbot Area */}
             <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-sm">
               <div className="mb-4 flex items-center gap-3 border-b border-white/10 pb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D7B982] text-[#6B0F1A] shadow-lg">
-                  <Bot className="h-6 w-6" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D7B982] text-[#6B0F1A] shadow-lg ring-1 ring-white/20">
+                  <div className="flex flex-col items-center leading-none">
+                    <span className="font-serif text-lg font-bold tracking-wide">C</span>
+                    <span className="mt-0.5 h-[2px] w-5 bg-[#6B0F1A]" />
+                  </div>
                 </div>
                 <div>
                   <h3 className="font-semibold text-white">CNTG Dijital Asistan</h3>
@@ -325,6 +327,7 @@ function ChatbotForm() {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const formDataRef = React.useRef(formData);
+  const hasInteractedWithInputRef = React.useRef(false);
   const messagesContainerRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -375,6 +378,20 @@ function ChatbotForm() {
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
   }, [messages, isTyping]);
+
+  React.useEffect(() => {
+    if (!hasInteractedWithInputRef.current || isTyping || step === 4 || step === 6) {
+      return;
+    }
+
+    const focusTimer = window.setTimeout(() => {
+      if (document.activeElement !== inputRef.current && !inputRef.current?.disabled) {
+        inputRef.current?.focus();
+      }
+    }, 0);
+
+    return () => window.clearTimeout(focusTimer);
+  }, [isTyping, step]);
 
 
   const handleNext = () => {
@@ -526,7 +543,7 @@ function ChatbotForm() {
             className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div 
-              className={`max-w-[85%] rounded-2xl p-4 text-sm leading-relaxed ${
+              className={`w-fit max-w-[min(85%,32rem)] break-words rounded-2xl p-4 text-sm leading-relaxed ${
                 msg.role === "user" 
                   ? "bg-[#D7B982] text-[#6B0F1A] rounded-tr-sm" 
                   : "bg-white/10 text-white rounded-tl-sm"
@@ -554,6 +571,9 @@ function ChatbotForm() {
               ref={inputRef}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
+              onFocus={() => {
+                hasInteractedWithInputRef.current = true;
+              }}
               onKeyDown={handleKeyPress}
               disabled={isTyping}
               placeholder={isTyping ? "Lütfen bekleyin..." : "Yanıtınızı buraya yazın..."}
