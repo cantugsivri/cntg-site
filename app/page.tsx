@@ -324,35 +324,34 @@ function ChatbotForm() {
   });
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const formDataRef = React.useRef(formData);
   const messagesContainerRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  // EmailJS Gönderim Fonksiyonu
-  const sendEmailNotification = async (data: typeof formData) => {
-    // Buradaki ID'leri EmailJS panelinden alıp buraya yapıştırmanız gerekecek
-    const SERVICE_ID = "service_akbu44d"; 
-    const TEMPLATE_ID = "template_bob9zex";
-    const PUBLIC_KEY = "shVNlL2HQr0qGqEwi";
+  const updateFormData = (data: typeof formData) => {
+    formDataRef.current = data;
+    setFormData(data);
+  };
 
+  const updateFormDataField = (field: keyof typeof formData, value: string) => {
+    updateFormData({ ...formDataRef.current, [field]: value });
+  };
+
+  const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+  const sendEmailNotification = async (data: typeof formData) => {
     try {
-      await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          service_id: SERVICE_ID,
-          template_id: TEMPLATE_ID,
-          user_id: PUBLIC_KEY,
-          template_params: {
-            from_name: data.name,
-            company_name: data.company,
-            email_address: data.email,
-            phone_number: data.phone,
-            requested_service: data.service === "Diğer" ? data.otherService : data.service,
-            to_email: "cantug.sivri@gmail.com" // Sizin mailiniz
-          }
-        })
+        body: JSON.stringify(data)
       });
-      console.log("Email başarıyla gönderildi!");
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => null);
+        throw new Error(errorBody?.error || "Email gönderimi başarısız oldu.");
+      }
+
     } catch (error) {
       console.error("Email gönderim hatası:", error);
     }
@@ -381,7 +380,7 @@ function ChatbotForm() {
   const handleNext = () => {
     if (inputValue.trim() === "") return;
     
-    const userText = inputValue;
+    const userText = inputValue.trim();
     const currentStep = step;
     
     // Ziyaretçinin mesajını ekle
@@ -394,7 +393,7 @@ function ChatbotForm() {
       let nextBotMessage: React.ReactNode = "";
       
       if (currentStep === 0) {
-        setFormData(prev => ({ ...prev, company: userText }));
+        updateFormDataField("company", userText);
         nextBotMessage = (
           <>
             Çok teşekkür ederim. <strong>Sizin adınız ve soyadınız nedir acaba?</strong>
@@ -402,7 +401,7 @@ function ChatbotForm() {
         );
         setStep(1);
       } else if (currentStep === 1) {
-        setFormData(prev => ({ ...prev, name: userText }));
+        updateFormDataField("name", userText);
         nextBotMessage = (
           <>
             Tanıştığıma çok memnun oldum {userText} Bey/Hanım. <br /><br />
@@ -411,7 +410,20 @@ function ChatbotForm() {
         );
         setStep(2);
       } else if (currentStep === 2) {
-        setFormData(prev => ({ ...prev, email: userText }));
+        if (!isValidEmail(userText)) {
+          setMessages(prev => [
+            ...prev,
+            {
+              id: Date.now().toString() + "_bot",
+              role: "bot",
+              content: "Lütfen geçerli bir e-posta adresi yazın."
+            }
+          ]);
+          setIsTyping(false);
+          return;
+        }
+
+        updateFormDataField("email", userText);
         nextBotMessage = (
           <>
             Teşekkür ederim. <strong>Son olarak iletişim için telefon numaranızı da rica edebilir miyim?</strong>
@@ -419,7 +431,7 @@ function ChatbotForm() {
         );
         setStep(3);
       } else if (currentStep === 3) {
-        setFormData(prev => ({ ...prev, phone: userText }));
+        updateFormDataField("phone", userText);
         nextBotMessage = (
           <>
             İletişim bilgilerinizi kaydettim, çok naziksiniz. Son olarak, <strong>aşağıdaki hizmetlerimizden hangisiyle ilgilenmektesiniz?</strong>
@@ -450,8 +462,8 @@ function ChatbotForm() {
         );
         setStep(6);
         // Step 6'ya geçerken mail gönderimini tetikle (OtherService bittiğinde)
-        const finalData = { ...formData, otherService: userText };
-        setFormData(finalData);
+        const finalData = { ...formDataRef.current, service: "Diğer", otherService: userText };
+        updateFormData(finalData);
         sendEmailNotification(finalData);
       }
 
@@ -481,11 +493,11 @@ function ChatbotForm() {
         );
         setStep(6);
         // Step 6'ya geçerken mail gönderimini tetikle (Normal hizmet bittiğinde)
-        const finalData = { ...formData, service };
-        setFormData(finalData);
+        const finalData = { ...formDataRef.current, service };
+        updateFormData(finalData);
         sendEmailNotification(finalData);
       } else {
-        setFormData(prev => ({ ...prev, service }));
+        updateFormDataField("service", service);
         nextBotMessage = (
           <>
             Anlıyorum. <strong>Lütfen ilgilendiğiniz konuyu veya hizmeti bize kısaca yazabilir misiniz?</strong>
