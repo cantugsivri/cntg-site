@@ -275,10 +275,10 @@ export default function CNTGLandingPage() {
                   <span className="min-w-0 break-words">cantug.sivri@gmail.com</span>
                 </div>
               </a>
-              <a href="#" className="group" onClick={(e) => e.preventDefault()}>
+              <a href="https://www.linkedin.com/company/cntg-growth-partners" target="_blank" rel="noopener noreferrer" className="group">
                 <div className="flex min-w-0 items-center gap-3 break-words rounded-xl bg-white/10 p-3 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl sm:p-4">
                   <Linkedin className="h-5 w-5 text-[#D7B982]" />
-                  <span>LinkedIn / Yakında Eklenecek</span>
+                  <span>LinkedIn Profilimiz</span>
                 </div>
               </a>
             </div>
