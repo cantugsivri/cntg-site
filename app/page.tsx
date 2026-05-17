@@ -35,63 +35,71 @@ type ContactItemProps = {
 
 export default function CNTGLandingPage() {
   return (
-    <main className="min-h-screen bg-[#F7F2EA] text-[#1E1E1E]">
-      <section className="relative overflow-hidden">
+    <main className="min-h-screen bg-[#F7F2EA] text-[#1E1E1E] overflow-x-hidden">
+      <section className="relative overflow-hidden w-full">
         <div className="absolute inset-0 bg-gradient-to-br from-[#FFF9F0] via-[#F4E9DC] to-[#D8C8B8]" />
-        <div className="absolute -right-28 top-0 h-[520px] w-[720px] rounded-full bg-[#6B0F1A]/10 blur-3xl" />
+        <div className="absolute -right-28 top-0 h-[320px] w-[320px] rounded-full bg-[#6B0F1A]/10 blur-3xl sm:h-[520px] sm:w-[720px]" />
         <div className="absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-[#F7F2EA] to-transparent" />
 
-        <div className="relative mx-auto flex max-w-7xl flex-col px-6 py-8 lg:px-10">
-          <header className="relative flex items-center h-28">
-            <div className="absolute left-[10%] -translate-x-1/2 flex flex-col items-center lg:left-[20%]">
-              <div className="flex flex-col items-center w-full">
-                <div className="h-[3px] w-[102%] bg-[#6B0F1A] mb-1"></div>
-                <div className="font-serif text-[4rem] md:text-[5.5rem] lg:text-[6rem] leading-none font-bold tracking-wide text-[#6B0F1A]">
+        <div className="relative mx-auto flex w-full max-w-7xl flex-col px-4 pb-4 pt-5 sm:px-6 sm:py-8 lg:px-10">
+          <header className="relative flex h-[5.25rem] items-center justify-center sm:h-28 lg:h-28">
+            <div className="flex min-w-0 flex-col items-center sm:absolute sm:left-[10%] sm:-translate-x-1/2 lg:left-[20%]">
+              <div className="flex flex-col items-center w-full max-w-[90vw]">
+                <div className="h-[3px] w-full bg-[#6B0F1A] mb-1"></div>
+                <div className="font-serif text-[2.5rem] leading-none font-bold tracking-wide text-[#6B0F1A] sm:text-[4rem] md:text-[5.5rem] lg:text-[6rem]">
                   CNTG
                 </div>
-                <div className="h-[3px] w-[102%] bg-[#6B0F1A] mt-2 mb-2"></div>
+                <div className="h-[3px] w-full bg-[#6B0F1A] mt-2 mb-2"></div>
               </div>
-              <div className="text-[0.65rem] md:text-xs tracking-[0.4em] text-[#6B0F1A] font-semibold whitespace-nowrap">
+              <div className="whitespace-nowrap text-[0.5rem] font-semibold tracking-[0.22em] text-[#6B0F1A] sm:text-[0.65rem] sm:tracking-[0.4em] md:text-xs">
                 GROWTH PARTNERS
               </div>
             </div>
-            <div className="w-full flex justify-end">
+            <div className="absolute right-0 top-1/2 flex -translate-y-1/2 justify-end">
               <a
                 href="#contact"
-                className="rounded-full border border-[#6B0F1A]/30 px-5 py-2 text-sm font-medium text-[#6B0F1A] transition hover:bg-[#6B0F1A] hover:text-white whitespace-nowrap z-10"
+                aria-label="Iletisime gec"
+                className="z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#6B0F1A]/25 bg-white/35 text-[0] text-[#6B0F1A] transition hover:bg-[#6B0F1A] hover:text-white sm:hidden"
               >
+                <ArrowRight className="h-4 w-4 rotate-90" />
                 İletişime Geç
+              </a>
+              <a
+                href="#contact"
+                className="z-10 hidden whitespace-nowrap rounded-full border border-[#6B0F1A]/30 px-5 py-2 text-sm font-medium text-[#6B0F1A] transition hover:bg-[#6B0F1A] hover:text-white sm:inline-flex"
+              >
+                &#304;leti&#351;ime Ge&#231;
               </a>
             </div>
           </header>
 
-          <div className="grid min-h-[680px] items-center gap-10 py-20 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid items-start gap-6 pb-10 pt-0 sm:gap-10 sm:py-16 lg:min-h-[680px] lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20 w-full">
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <p className="mb-5 text-sm font-semibold tracking-[0.28em] text-[#6B0F1A]">
+              <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[#6B0F1A] sm:mb-5 sm:text-sm sm:tracking-[0.28em]">
                 SAHA • BÜYÜME • GELİŞİM
               </p>
-              <h1 className="max-w-3xl text-5xl font-semibold leading-tight tracking-[-0.04em] text-[#171717] md:text-7xl">
+              <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.03em] text-[#171717] sm:text-5xl md:text-7xl md:tracking-[-0.04em]">
                 Sahada büyüme sistemleri kuruyoruz.
               </h1>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-[#4B4B4B]">
-                Markanız için saha satış, distribütör optimizasyonu ve yönetimi, pazara
-                giriş süreçlerini analiz eder, yapılandırır ve sahada
-                uygulanabilir hale getiririz.
+              <p className="mt-4 max-w-2xl text-base leading-7 text-[#4B4B4B] sm:mt-7 sm:text-lg sm:leading-8">
+                CNTG Growth Partners; saha satış, iş geliştirme, distribütör
+                yapılanması, route-to-market ve Horeca büyüme yapılarında
+                markalara uygulanabilir saha sistemleri kurar.
               </p>
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center rounded-full bg-[#6B0F1A] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#6B0F1A]/20 transition hover:bg-[#530A13]"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-[#6B0F1A] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#6B0F1A]/20 transition hover:bg-[#530A13] sm:w-auto"
                 >
                   Projenizi Konuşalım <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
                 <a
                   href="#services"
-                  className="inline-flex items-center justify-center rounded-full bg-white/70 px-7 py-4 text-sm font-semibold text-[#232323] ring-1 ring-black/10 backdrop-blur transition hover:bg-white"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-white/70 px-7 py-4 text-sm font-semibold text-[#232323] ring-1 ring-black/10 backdrop-blur transition hover:bg-white sm:w-auto"
                 >
                   Hizmetleri İncele
                 </a>
@@ -104,21 +112,21 @@ export default function CNTGLandingPage() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="relative"
             >
-              <div className="rounded-[2rem] bg-white/60 p-6 shadow-2xl shadow-black/10 ring-1 ring-white/70 backdrop-blur">
-                <div className="rounded-[1.5rem] bg-gradient-to-br from-[#6B0F1A] to-[#2D1115] p-8 text-white">
-                  <div className="text-sm tracking-[0.24em] text-white/70">
-                    ÖRNEK CNTG MODELLERİ
+              <div className="rounded-3xl bg-white/60 p-4 shadow-2xl shadow-black/10 ring-1 ring-white/70 backdrop-blur sm:rounded-[2rem] sm:p-6">
+                <div className="rounded-2xl bg-gradient-to-br from-[#6B0F1A] to-[#2D1115] p-5 text-white sm:rounded-[1.5rem] sm:p-8">
+                  <div className="text-xs tracking-[0.18em] text-white/70 sm:text-sm sm:tracking-[0.24em]">
+                    CNTG ODAK ALANLARI
                   </div>
-                  <div className="mt-10 space-y-5">
+                  <div className="mt-6 space-y-3 sm:mt-10 sm:space-y-5">
                     {[
-                      "Horeca'da Büyüme Yapıları",
-                      "Pazara Giriş Süreçleri",
-                      "Saha Satış Sistemlerinde Gelişme",
-                      "Distribütör Optimizasyonu ve Yönetimi"
+                      "Horeca büyüme yapıları",
+                      "Bölgesel pazar geliştirme",
+                      "Saha satış sistemi",
+                      "Distribütör optimizasyonu"
                     ].map((item) => (
                       <div
                         key={item}
-                        className="flex items-center gap-4 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10"
+                        className="flex items-center gap-3 rounded-xl bg-white/10 p-3 ring-1 ring-white/10 sm:gap-4 sm:rounded-2xl sm:p-4"
                       >
                         <CheckCircle2 className="h-5 w-5 text-[#D7B982]" />
                         <span className="font-medium">{item}</span>
@@ -132,14 +140,36 @@ export default function CNTGLandingPage() {
         </div>
       </section>
 
-      <section id="services" className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-        <div className="mb-12 max-w-2xl">
-          <p className="text-sm font-semibold tracking-[0.28em] text-[#6B0F1A]">
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-14 lg:px-10 w-full">
+        <div className="rounded-3xl border border-black/10 bg-white/70 p-5 shadow-sm backdrop-blur sm:p-8">
+          <div className="grid gap-4 sm:grid-cols-[0.8fr_1.2fr] sm:items-center">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.22em] text-[#6B0F1A] sm:text-sm sm:tracking-[0.28em]">
+                BÖLGESEL ODAK
+              </p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
+                Sahada yerel ritmi okuyarak büyürüz.
+              </h2>
+            </div>
+            <p className="text-sm font-medium leading-7 text-[#4B4B4B] sm:text-base">
+              Muğla • Bodrum • Marmaris • Fethiye • Ege Bölgesi
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 sm:py-24 lg:px-10 w-full">
+        <div className="mb-8 max-w-2xl sm:mb-12">
+          <p className="text-xs font-semibold tracking-[0.22em] text-[#6B0F1A] sm:text-sm sm:tracking-[0.28em]">
             HİZMETLER
           </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] md:text-5xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:mt-4 sm:text-4xl md:text-5xl">
             Sahada sonuç üreten yapı kurarız.
           </h2>
+          <p className="mt-4 text-base leading-7 text-[#5A5A5A] sm:text-lg">
+            Butik danışmanlık yaklaşımıyla kanal, ekip, rota ve müşteri geliştirme
+            süreçlerini sahada uygulanabilir hale getiririz.
+          </p>
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           <ServiceCard
@@ -165,44 +195,58 @@ export default function CNTGLandingPage() {
         </div>
       </section>
 
-      <section className="bg-white/60 py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
+      <section className="bg-white/70 py-14 sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-10">
           <div>
-            <p className="text-sm font-semibold tracking-[0.28em] text-[#6B0F1A]">
-              ÇALIŞMA MODELİ
+            <p className="text-xs font-semibold tracking-[0.22em] text-[#6B0F1A] sm:text-sm sm:tracking-[0.28em]">
+              NASIL ÇALIŞIYORUZ?
             </p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] md:text-5xl">
-              Analiz eder, planlar, sahada uygularız.
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:mt-4 sm:text-4xl md:text-5xl">
+              Analizden sürdürülebilir büyümeye net bir saha akışı.
             </h2>
+            <p className="mt-4 text-base leading-7 text-[#5A5A5A]">
+              Her projede önce bölgeyi ve kanalı okur, sonra uygulanabilir saha
+              ritmini kurarız.
+            </p>
           </div>
-          <div className="space-y-5">
+          <div className="space-y-4 sm:space-y-5">
             <Step
               number="01"
-              title="Analiz"
-              text="Mevcut saha, müşteri, ürün, distribütör ve performans yapısı incelenir."
+              title="Bölge ve kanal analizi"
+              text="Mevcut pazar, müşteri profili, kanal yapısı ve büyüme fırsatları netleştirilir."
             />
             <Step
               number="02"
-              title="Aksiyon Planı"
-              text="Gelişim alanları belirlenir, uygulanabilir saha ve büyüme planı hazırlanır."
+              title="Saha yapılanması"
+              text="Ekip, rota, hedef, ziyaret ve takip ritmi uygulanabilir bir düzene alınır."
             />
             <Step
               number="03"
-              title="Uygulama & Takip"
-              text="Plan sahaya aktarılır, sonuçlar takip edilir ve iyileştirme adımları yönetilir."
+              title="Aktif müşteri geliştirme"
+              text="Doğru nokta, doğru teklif ve düzenli temasla müşteri portföyü güçlendirilir."
+            />
+            <Step
+              number="04"
+              title="Operasyon & raporlama"
+              text="Saha çıktıları düzenli raporlanır, aksiyonlar ölçülebilir hale getirilir."
+            />
+            <Step
+              number="05"
+              title="Sürdürülebilir büyüme"
+              text="İyileştirme döngüsüyle model kalıcı ve tekrar edilebilir bir yapıya dönüşür."
             />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-        <div className="rounded-[2rem] bg-[#171717] p-8 text-white md:p-12">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-10">
+        <div className="rounded-3xl bg-[#171717] p-6 text-white sm:rounded-[2rem] sm:p-8 md:p-12">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold tracking-[0.28em] text-[#D7B982]">
+              <p className="text-xs font-semibold tracking-[0.22em] text-[#D7B982] sm:text-sm sm:tracking-[0.28em]">
                 KİMLER İÇİN?
               </p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:mt-4 sm:text-4xl">
                 Hizmetlerini büyütmek isteyen firmalar.
               </h2>
             </div>
@@ -221,9 +265,9 @@ export default function CNTGLandingPage() {
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
-        <div className="rounded-[2rem] bg-[#6B0F1A] p-8 text-white md:p-12">
-          <h2 className="text-4xl font-semibold tracking-[-0.03em]">
+      <section id="contact" className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-10 w-full">
+        <div className="rounded-3xl bg-[#6B0F1A] p-4 text-white sm:rounded-[2rem] sm:p-8 md:p-12 overflow-hidden">
+          <h2 className="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
             Projenizi konuşalım.
           </h2>
           <p className="mt-4 max-w-2xl text-white/75">
@@ -231,17 +275,17 @@ export default function CNTGLandingPage() {
             kısa bir ön görüşme yapabiliriz.
           </p>
           
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1.5fr]">
+          <div className="mt-7 grid gap-6 sm:mt-8 sm:gap-8 lg:grid-cols-[1fr_1.5fr]">
             {/* Direct Contact Links */}
-            <div className="flex flex-col gap-4">
+            <div className="flex min-w-0 flex-col gap-3 sm:gap-4">
               <a href="mailto:cantug.sivri@gmail.com" className="group">
-                <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10 transition group-hover:bg-white/20">
+                <div className="flex min-w-0 items-center gap-3 break-words rounded-xl bg-white/10 p-3 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl sm:p-4">
                   <Mail className="h-5 w-5 text-[#D7B982]" />
-                  <span>cantug.sivri@gmail.com</span>
+                  <span className="min-w-0 break-words">cantug.sivri@gmail.com</span>
                 </div>
               </a>
               <a href="#" className="group" onClick={(e) => e.preventDefault()}>
-                <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10 transition group-hover:bg-white/20">
+                <div className="flex min-w-0 items-center gap-3 break-words rounded-xl bg-white/10 p-3 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl sm:p-4">
                   <Linkedin className="h-5 w-5 text-[#D7B982]" />
                   <span>LinkedIn / Yakında Eklenecek</span>
                 </div>
@@ -249,12 +293,11 @@ export default function CNTGLandingPage() {
             </div>
 
             {/* AI Chatbot Area */}
-            <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-sm">
+            <div className="min-w-0 rounded-2xl bg-white/5 p-3 ring-1 ring-white/10 backdrop-blur-sm sm:p-6">
               <div className="mb-4 flex items-center gap-3 border-b border-white/10 pb-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D7B982] text-[#6B0F1A] shadow-lg ring-1 ring-white/20">
                   <div className="flex flex-col items-center leading-none">
-                    <span className="font-serif text-lg font-bold tracking-wide">C</span>
-                    <span className="mt-0.5 h-[2px] w-5 bg-[#6B0F1A]" />
+                    <span className="font-serif text-xl font-bold tracking-wide">C</span>
                   </div>
                 </div>
                 <div>
@@ -273,11 +316,11 @@ export default function CNTGLandingPage() {
 
 function ServiceCard({ icon, title, text }: ServiceCardProps) {
   return (
-    <div className="rounded-[1.5rem] bg-white p-6 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-xl">
-      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#6B0F1A]/10 text-[#6B0F1A]">
+    <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-xl sm:rounded-[1.5rem] sm:p-6">
+      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-[#6B0F1A]/10 text-[#6B0F1A] sm:mb-6 sm:h-12 sm:w-12 sm:rounded-2xl">
         {React.cloneElement(icon, { className: "h-6 w-6" })}
       </div>
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <h3 className="text-lg font-semibold sm:text-xl">{title}</h3>
       <p className="mt-3 leading-7 text-[#5A5A5A]">{text}</p>
     </div>
   );
@@ -285,13 +328,13 @@ function ServiceCard({ icon, title, text }: ServiceCardProps) {
 
 function Step({ number, title, text }: StepProps) {
   return (
-    <div className="rounded-[1.5rem] bg-white p-6 shadow-sm ring-1 ring-black/5">
-      <div className="flex gap-5">
+    <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:rounded-[1.5rem] sm:p-6">
+      <div className="flex gap-4 sm:gap-5">
         <div className="text-sm font-bold tracking-widest text-[#6B0F1A]">
           {number}
         </div>
         <div>
-          <h3 className="text-2xl font-semibold">{title}</h3>
+          <h3 className="text-xl font-semibold sm:text-2xl">{title}</h3>
           <p className="mt-2 leading-7 text-[#5A5A5A]">{text}</p>
         </div>
       </div>
@@ -529,11 +572,11 @@ function ChatbotForm() {
   };
 
   return (
-    <div className="flex h-[380px] flex-col justify-between rounded-xl bg-black/10">
+    <div className="flex h-[400px] flex-col justify-between rounded-xl bg-black/10 sm:h-[380px]">
       {/* Messages Area */}
       <div 
         ref={messagesContainerRef}
-        className="flex-1 overflow-y-auto p-4 space-y-4 scroll-smooth"
+        className="flex-1 space-y-3 overflow-y-auto p-3 scroll-smooth sm:space-y-4 sm:p-4"
       >
         {messages.map((msg) => (
           <motion.div 
@@ -543,7 +586,7 @@ function ChatbotForm() {
             className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div 
-              className={`w-fit max-w-[min(85%,32rem)] break-words rounded-2xl p-4 text-sm leading-relaxed ${
+              className={`w-fit max-w-[min(92%,32rem)] break-words rounded-2xl p-3 text-sm leading-relaxed sm:max-w-[min(85%,32rem)] sm:p-4 ${
                 msg.role === "user" 
                   ? "bg-[#D7B982] text-[#6B0F1A] rounded-tr-sm" 
                   : "bg-white/10 text-white rounded-tl-sm"
@@ -563,7 +606,7 @@ function ChatbotForm() {
       </div>
 
       {/* Input Area */}
-      <div className="p-4 border-t border-white/10">
+      <div className="border-t border-white/10 p-3 sm:p-4">
         {step !== 4 && step !== 6 ? (
           <div className="flex items-center gap-2">
             <input
