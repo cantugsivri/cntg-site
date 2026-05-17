@@ -12,7 +12,7 @@ import {
   Phone,
   Target
 } from "lucide-react";
-import { motion } from "framer-motion";
+// CSS animations used instead of framer-motion for reliable mobile rendering
 
 type IconElement = ReactElement<{ className?: string }>;
 
@@ -74,11 +74,7 @@ export default function CNTGLandingPage() {
           </header>
 
           <div className="grid items-start gap-6 pb-10 pt-0 sm:gap-10 sm:py-16 lg:min-h-[680px] lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
+            <div className="animate-fade-in-up">
               <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[#6B0F1A] sm:mb-5 sm:text-sm sm:tracking-[0.28em]">
                 SAHA • BÜYÜME • GELİŞİM
               </p>
@@ -104,14 +100,9 @@ export default function CNTGLandingPage() {
                   Hizmetleri İncele
                 </a>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="relative"
-            >
+            <div className="relative animate-fade-in-scale">
               <div className="rounded-3xl bg-white/60 p-4 shadow-2xl shadow-black/10 ring-1 ring-white/70 backdrop-blur sm:rounded-[2rem] sm:p-6">
                 <div className="rounded-2xl bg-gradient-to-br from-[#6B0F1A] to-[#2D1115] p-5 text-white sm:rounded-[1.5rem] sm:p-8">
                   <div className="text-xs tracking-[0.18em] text-white/70 sm:text-sm sm:tracking-[0.24em]">
@@ -135,7 +126,7 @@ export default function CNTGLandingPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -579,11 +570,9 @@ function ChatbotForm() {
         className="flex-1 space-y-3 overflow-y-auto p-3 scroll-smooth sm:space-y-4 sm:p-4"
       >
         {messages.map((msg) => (
-          <motion.div 
+          <div 
             key={msg.id}
-            initial={{ opacity: 0, y: 10 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+            className={`flex animate-fade-in ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div 
               className={`w-fit max-w-[min(92%,32rem)] break-words rounded-2xl p-3 text-sm leading-relaxed sm:max-w-[min(85%,32rem)] sm:p-4 ${
@@ -594,14 +583,14 @@ function ChatbotForm() {
             >
               {msg.content}
             </div>
-          </motion.div>
+          </div>
         ))}
         {isTyping && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
+          <div className="flex justify-start animate-fade-in">
             <div className="bg-white/10 text-white/50 rounded-2xl rounded-tl-sm px-4 py-3 text-sm">
               Yazıyor...
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
 
