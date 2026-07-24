@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CNTG Growth Partners",
+  title: "CNTG Growth Partners | Saha Satış, Otomasyon & Büyüme Danışmanlığı",
   description:
-    "HORECA kanalı için bölgesel büyüme, saha operasyonu ve ticari takip çözümleri.",
+    "Saha satış ve operasyon hizmetleri, iş süreçleri otomasyonu, verimlilik analizleri ve stratejik büyüme & kurumsallığa geçiş danışmanlığı.",
   openGraph: {
-    title: "CNTG Growth Partners",
+    title: "CNTG Growth Partners | Saha Satış, Otomasyon & Büyüme Danışmanlığı",
     description:
-      "HORECA kanalında doğru nokta, doğru teklif ve sürdürülebilir operasyon.",
+      "Sahada büyüme sistemleri, dijital süreç otomasyonu ve kurumsallığa geçiş danışmanlığı ile sürdürülebilir başarı.",
     type: "website"
   }
 };

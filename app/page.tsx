@@ -9,10 +9,18 @@ import {
   Mail,
   MapPinned,
   Network,
-  Phone,
-  Target
+  Target,
+  Cpu,
+  Zap,
+  Briefcase,
+  TrendingUp,
+  Users,
+  Building2,
+  Sparkles,
+  ChevronRight,
+  Layers,
+  Bot
 } from "lucide-react";
-// CSS animations used instead of framer-motion for reliable mobile rendering
 
 type IconElement = ReactElement<{ className?: string }>;
 
@@ -20,6 +28,7 @@ type ServiceCardProps = {
   icon: IconElement;
   title: string;
   text: string;
+  badge?: string;
 };
 
 type StepProps = {
@@ -28,102 +37,139 @@ type StepProps = {
   text: string;
 };
 
-type ContactItemProps = {
-  icon: IconElement;
-  text: string;
-};
-
 export default function CNTGLandingPage() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[#F7F2EA] text-[#1E1E1E] overflow-x-hidden">
+      {/* HERO SECTION */}
       <section className="relative overflow-hidden w-full">
         <div className="absolute inset-0 bg-gradient-to-br from-[#FFF9F0] via-[#F4E9DC] to-[#D8C8B8]" />
         <div className="absolute -right-28 top-0 h-[320px] w-[320px] rounded-full bg-[#6B0F1A]/10 blur-3xl sm:h-[520px] sm:w-[720px]" />
         <div className="absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-[#F7F2EA] to-transparent" />
 
-        <div className="relative mx-auto flex w-full max-w-7xl flex-col px-4 pb-4 pt-5 sm:px-6 sm:py-8 lg:px-10">
-          <header className="relative flex h-[5.25rem] items-center justify-center sm:h-28 lg:h-28">
-            <div className="flex min-w-0 flex-col items-center sm:absolute sm:left-[10%] sm:-translate-x-1/2 lg:left-[20%]">
+        <div className="relative mx-auto flex w-full max-w-7xl flex-col px-4 pb-12 pt-5 sm:px-6 sm:py-10 lg:px-10">
+          {/* HEADER */}
+          <header className="relative flex h-[5.25rem] items-center justify-between sm:h-28 lg:h-28">
+            <div className="flex min-w-0 flex-col items-start sm:items-center sm:absolute sm:left-[10%] sm:-translate-x-1/2 lg:left-[20%]">
               <div className="flex flex-col items-center w-full max-w-[90vw]">
                 <div className="h-[3px] w-full bg-[#6B0F1A] mb-1"></div>
-                <div className="font-serif text-[2.5rem] leading-none font-bold tracking-wide text-[#6B0F1A] sm:text-[4rem] md:text-[5.5rem] lg:text-[6rem]">
+                <div className="font-serif text-[2.2rem] leading-none font-bold tracking-wide text-[#6B0F1A] sm:text-[3.5rem] md:text-[5rem] lg:text-[5.5rem]">
                   CNTG
                 </div>
                 <div className="h-[3px] w-full bg-[#6B0F1A] mt-2 mb-2"></div>
               </div>
-              <div className="whitespace-nowrap text-[0.5rem] font-semibold tracking-[0.22em] text-[#6B0F1A] sm:text-[0.65rem] sm:tracking-[0.4em] md:text-xs">
+              <div className="whitespace-nowrap text-[0.45rem] font-semibold tracking-[0.2em] text-[#6B0F1A] sm:text-[0.6rem] sm:tracking-[0.35em] md:text-xs">
                 GROWTH PARTNERS
               </div>
             </div>
-            <div className="absolute right-0 top-1/2 flex -translate-y-1/2 justify-end">
+            <div className="flex items-center gap-3">
               <a
                 href="#contact"
-                aria-label="Iletisime gec"
-                className="z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#6B0F1A]/25 bg-white/35 text-[0] text-[#6B0F1A] transition hover:bg-[#6B0F1A] hover:text-white sm:hidden"
+                className="z-10 inline-flex items-center justify-center rounded-full bg-[#6B0F1A] px-5 py-2 text-xs sm:text-sm font-medium text-white shadow-md transition hover:bg-[#530A13]"
               >
-                <ArrowRight className="h-4 w-4 rotate-90" />
-                İletişime Geç
-              </a>
-              <a
-                href="#contact"
-                className="z-10 hidden whitespace-nowrap rounded-full border border-[#6B0F1A]/30 px-5 py-2 text-sm font-medium text-[#6B0F1A] transition hover:bg-[#6B0F1A] hover:text-white sm:inline-flex"
-              >
-                &#304;leti&#351;ime Ge&#231;
+                İletişime Geç <ArrowRight className="ml-1.5 h-4 w-4" />
               </a>
             </div>
           </header>
 
-          <div className="grid items-start gap-6 pb-10 pt-0 sm:gap-10 sm:py-16 lg:min-h-[680px] lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20 w-full">
-            <div className="animate-fade-in-up">
-              <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[#6B0F1A] sm:mb-5 sm:text-sm sm:tracking-[0.28em]">
-                SAHA • BÜYÜME • GELİŞİM
-              </p>
-              <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.03em] text-[#171717] sm:text-5xl md:text-7xl md:tracking-[-0.04em]">
-                Sahada büyüme sistemleri kuruyoruz.
-              </h1>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-[#4B4B4B] sm:mt-7 sm:text-lg sm:leading-8">
-                CNTG Growth Partners; saha satış, iş geliştirme, distribütör
-                yapılanması, route-to-market ve Horeca büyüme yapılarında
-                markalara uygulanabilir saha sistemleri kurar.
-              </p>
-              <div className="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
-                <a
-                  href="#contact"
-                  className="inline-flex w-full items-center justify-center rounded-full bg-[#6B0F1A] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#6B0F1A]/20 transition hover:bg-[#530A13] sm:w-auto"
-                >
-                  Projenizi Konuşalım <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-                <a
-                  href="#services"
-                  className="inline-flex w-full items-center justify-center rounded-full bg-white/70 px-7 py-4 text-sm font-semibold text-[#232323] ring-1 ring-black/10 backdrop-blur transition hover:bg-white sm:w-auto"
-                >
-                  Hizmetleri İncele
-                </a>
-              </div>
+          {/* HERO CONTENT */}
+          <div className="pt-8 sm:pt-12 pb-6 max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-4 py-1.5 text-xs font-semibold text-[#6B0F1A] mb-4 sm:mb-6">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>SAHA • OTOMASYON • KURUMSALLAŞMA & BÜYÜME</span>
             </div>
 
-            <div className="relative animate-fade-in-scale">
-              <div className="rounded-3xl bg-white/60 p-4 shadow-2xl shadow-black/10 ring-1 ring-white/70 backdrop-blur sm:rounded-[2rem] sm:p-6">
-                <div className="rounded-2xl bg-gradient-to-br from-[#6B0F1A] to-[#2D1115] p-5 text-white sm:rounded-[1.5rem] sm:p-8">
-                  <div className="text-xs tracking-[0.18em] text-white/70 sm:text-sm sm:tracking-[0.24em]">
-                    CNTG ODAK ALANLARI
+            <h1 className="text-3xl font-semibold leading-tight tracking-[-0.03em] text-[#171717] sm:text-5xl md:text-6xl md:tracking-[-0.04em]">
+              İşletmeniz için sürdürülebilir büyüme ve operasyonel verimlilik sistemleri kuruyoruz.
+            </h1>
+
+            <p className="mt-5 text-base leading-7 text-[#4B4B4B] sm:mt-7 sm:text-xl sm:leading-8 max-w-3xl mx-auto">
+              CNTG Growth Partners; işletmelerin saha satış yapılanmasından iş süreçlerinin dijital otomasyonuna, verimlilik analizlerinden kurumsallığa geçiş ve stratejik mentörlüğe kadar tüm büyüme yolculuğunda bütünsel çözümler sunar.
+            </p>
+          </div>
+
+          {/* 3 MAIN INTERACTIVE SERVICE BOXES (GRID) */}
+          <div className="mt-6 sm:mt-10" id="services-overview">
+            <div className="text-center mb-6">
+              <p className="text-xs font-semibold tracking-[0.2em] text-[#6B0F1A] uppercase">
+                3 Ana Hizmet Alanımız
+              </p>
+              <h2 className="text-xl sm:text-2xl font-bold mt-1">İlgilendiğiniz Hizmet Kutusunu Seçin</h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {/* Pillar 1 Box */}
+              <div 
+                onClick={() => scrollToSection("saha-hizmetleri")}
+                className="group cursor-pointer rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:-translate-y-1.5 hover:shadow-2xl hover:ring-[#6B0F1A]/30 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#6B0F1A]/10 text-[#6B0F1A] transition group-hover:bg-[#6B0F1A] group-hover:text-white">
+                    <Target className="h-6 w-6" />
                   </div>
-                  <div className="mt-6 space-y-3 sm:mt-10 sm:space-y-5">
-                    {[
-                      "Horeca büyüme yapıları",
-                      "Bölgesel pazar geliştirme",
-                      "Saha satış sistemi",
-                      "Distribütör optimizasyonu"
-                    ].map((item) => (
-                      <div
-                        key={item}
-                        className="flex items-center gap-3 rounded-xl bg-white/10 p-3 ring-1 ring-white/10 sm:gap-4 sm:rounded-2xl sm:p-4"
-                      >
-                        <CheckCircle2 className="h-5 w-5 text-[#D7B982]" />
-                        <span className="font-medium">{item}</span>
-                      </div>
-                    ))}
+                  <div className="text-xs font-semibold tracking-wider text-[#6B0F1A] uppercase mb-1">01. HİZMET ALANI</div>
+                  <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
+                    Saha Satış, Büyüme ve Operasyon Hizmetleri
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5A5A5A]">
+                    Saha satış ekibi yapılanması, rota disiplini, distribütör ağı, HORECA açılımları ve pazar giriş stratejileri.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
+                  <span>Detayları İncele</span>
+                  <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </div>
+              </div>
+
+              {/* Pillar 2 Box */}
+              <div 
+                onClick={() => scrollToSection("otomasyon-analiz")}
+                className="group cursor-pointer rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:-translate-y-1.5 hover:shadow-2xl hover:ring-[#6B0F1A]/30 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#6B0F1A]/10 text-[#6B0F1A] transition group-hover:bg-[#6B0F1A] group-hover:text-white">
+                    <Zap className="h-6 w-6" />
                   </div>
+                  <div className="text-xs font-semibold tracking-wider text-[#6B0F1A] uppercase mb-1">02. HİZMET ALANI</div>
+                  <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
+                    İş Süreçleri Otomasyonu, Verimlilik ve Analiz Çalışmaları
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5A5A5A]">
+                    Süreç otomasyonu, manuel işlerin dijitalleşmesi, veri analitiği, hızlı raporlama ve verimlilik artışı.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
+                  <span>Detayları İncele</span>
+                  <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </div>
+              </div>
+
+              {/* Pillar 3 Box */}
+              <div 
+                onClick={() => scrollToSection("kurumsallik-mentorluk")}
+                className="group cursor-pointer rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:-translate-y-1.5 hover:shadow-2xl hover:ring-[#6B0F1A]/30 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#6B0F1A]/10 text-[#6B0F1A] transition group-hover:bg-[#6B0F1A] group-hover:text-white">
+                    <TrendingUp className="h-6 w-6" />
+                  </div>
+                  <div className="text-xs font-semibold tracking-wider text-[#6B0F1A] uppercase mb-1">03. HİZMET ALANI</div>
+                  <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
+                    Stratejik Büyüme, Kurumsallığa Geçiş Danışmanlığı & Mentörlük
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5A5A5A]">
+                    Kurumsallaşma adımları, scale-up stratejisi, üst düzey yönetici mentörlüğü ve ticari büyüme rehberliği.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
+                  <span>Detayları İncele</span>
+                  <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </div>
               </div>
             </div>
@@ -131,61 +177,209 @@ export default function CNTGLandingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-14 lg:px-10 w-full">
-        <div className="rounded-3xl border border-black/10 bg-white/70 p-5 shadow-sm backdrop-blur sm:p-8">
-          <div className="grid gap-4 sm:grid-cols-[0.8fr_1.2fr] sm:items-center">
-            <div>
-              <p className="text-xs font-semibold tracking-[0.22em] text-[#6B0F1A] sm:text-sm sm:tracking-[0.28em]">
-                BÖLGESEL ODAK
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
-                Sahada yerel ritmi okuyarak büyürüz.
-              </h2>
+      {/* DETAILED SECTION 1: SAHA SATIŞ, BÜYÜME VE OPERASYON HİZMETLERİ */}
+      <section id="saha-hizmetleri" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-10 w-full border-t border-black/5">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-3 py-1 text-xs font-semibold text-[#6B0F1A]">
+              <Target className="h-3.5 w-3.5" /> 1. HİZMET DİKEYİ
             </div>
-            <p className="text-sm font-medium leading-7 text-[#4B4B4B] sm:text-base">
-              Muğla • Bodrum • Marmaris • Fethiye • Ege Bölgesi
+            <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
+              Saha Satış, Büyüme ve Operasyon Hizmetleri
+            </h2>
+            <p className="mt-2 text-base text-[#5A5A5A] max-w-2xl">
+              Sahada ölçülebilir sonuçlar üreten satış ekipleri, distribütör ilişkileri ve route-to-market sistemleri kuruyoruz.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <ServiceCard
+            icon={<Target />}
+            title="Saha Satış Ekip Yapılanması"
+            text="Ekip hedefi, ziyaret rotaları ve performans takiplerini ölçülebilir ve disiplinli bir düzene oturtuyoruz."
+            badge="Saha Disiplini"
+          />
+          <ServiceCard
+            icon={<Network />}
+            title="Distribütör Yapılandırması"
+            text="Doğru distribütör seçimi, sorumluluk alanlarının belirlenmesi ve sevk/satış takibini kurguluyoruz."
+            badge="Kanal Yönetimi"
+          />
+          <ServiceCard
+            icon={<MapPinned />}
+            title="HORECA & Bölgesel Açılım"
+            text="Otel, restoran, kafeterya ve yerel kanallarda Muğla, Bodrum, Marmaris, Fethiye ve Ege genelinde büyüme sağlıyoruz."
+            badge="Ege Odaklı"
+          />
+          <ServiceCard
+            icon={<BarChart3 />}
+            title="Route to Market Stratejisi"
+            text="Yeni bölge ve kanal girişlerinde pazara en hızlı ve verimli ulaşma stratejisini sahada uyguluyoruz."
+            badge="Pazara Giriş"
+          />
+        </div>
+
+        {/* Regional Focus Banner */}
+        <div className="mt-8 rounded-2xl border border-black/10 bg-white p-5 shadow-sm sm:p-6">
+          <div className="grid gap-3 sm:grid-cols-[0.8fr_1.2fr] sm:items-center">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.2em] text-[#6B0F1A] uppercase">
+                BÖLGESEL SAHA ODAĞI
+              </p>
+              <h3 className="mt-1 text-lg font-bold">Sahada yerel ritmi okuyarak büyürüz.</h3>
+            </div>
+            <p className="text-sm font-medium text-[#4B4B4B]">
+              📍 Muğla • Bodrum • Marmaris • Fethiye • Ege Bölgesi & Türkiye Genel Saha Yapılanmaları
             </p>
           </div>
         </div>
       </section>
 
-      <section id="services" className="mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 sm:py-24 lg:px-10 w-full">
-        <div className="mb-8 max-w-2xl sm:mb-12">
-          <p className="text-xs font-semibold tracking-[0.22em] text-[#6B0F1A] sm:text-sm sm:tracking-[0.28em]">
-            HİZMETLER
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:mt-4 sm:text-4xl md:text-5xl">
-            Sahada sonuç üreten yapı kurarız.
-          </h2>
-          <p className="mt-4 text-base leading-7 text-[#5A5A5A] sm:text-lg">
-            Butik danışmanlık yaklaşımıyla kanal, ekip, rota ve müşteri geliştirme
-            süreçlerini sahada uygulanabilir hale getiririz.
-          </p>
+      {/* DETAILED SECTION 2: İŞ SÜREÇLERİ OTOMASYONU, VERİMLİLİK VE ANALİZ ÇALIŞMALARI */}
+      <section id="otomasyon-analiz" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-10 w-full border-t border-black/5 bg-white/40">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-3 py-1 text-xs font-semibold text-[#6B0F1A]">
+              <Zap className="h-3.5 w-3.5" /> 2. HİZMET DİKEYİ
+            </div>
+            <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
+              İş Süreçleri Otomasyonu, Verimlilik ve Analiz Çalışmaları
+            </h2>
+            <p className="mt-2 text-base text-[#5A5A5A] max-w-2xl">
+              Rutin iş akışlarını otomatikleştirerek insan hatasını azaltıyor, operasyonel hızı ve veri bazlı verimliliği artırıyoruz.
+            </p>
+          </div>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <ServiceCard
-            icon={<Target />}
-            title="Saha Satış Sistemleri"
-            text="Ekip, hedef, rota, ziyaret ve takip yapısını daha ölçülebilir hale getiririz."
+            icon={<Cpu />}
+            title="İş Süreçleri Otomasyonu"
+            text="Tekrarlayan iş süreçlerini dijital otomasyon sistemlerine devrederek iş yükünü ve süreç sürelerini minimuma indiriyoruz."
+            badge="Otomasyon"
           />
           <ServiceCard
-            icon={<Network />}
-            title="Distribütör Yapılanması"
-            text="Doğru distribütör modeli, sorumluluk alanı ve performans takibini kurgularız."
-          />
-          <ServiceCard
-            icon={<MapPinned />}
-            title="Route to Market"
-            text="Yeni bölge ve kanal açılımlarında uygulanabilir pazara giriş sistemi kurarız."
+            icon={<Zap />}
+            title="Verimlilik Artış Analizleri"
+            text="Şirket içi darboğazları tespit ediyor, zaman ve maliyet kayıplarını önleyen verimlilik çözümleri sunuyoruz."
+            badge="Verimlilik"
           />
           <ServiceCard
             icon={<BarChart3 />}
-            title="Performans Analizi"
-            text="Satış, müşteri, ürün ve ekip verilerini aksiyon planına dönüştürürüz."
+            title="Veri Analizi & Raporlama"
+            text="Satış, operasyon ve müşteri verilerini anlık izlenebilir grafiksel karar destek panellerine dönüştürüyoruz."
+            badge="Veri Analitiği"
+          />
+          <ServiceCard
+            icon={<Bot />}
+            title="Akıllı Süreç Entegrasyonu"
+            text="Mevcut yazılımlarınızı ve akışlarınızı akıllı dijital araçlar ve entegrasyonlar ile güçlendiriyoruz."
+            badge="Entegrasyon"
           />
         </div>
       </section>
 
+      {/* DETAILED SECTION 3: STRATEJİK BÜYÜME, KURUMSALLIĞA GEÇİŞ DANIŞMANLIĞI & MENTÖRLÜK */}
+      <section id="kurumsallik-mentorluk" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-10 w-full border-t border-black/5">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-3 py-1 text-xs font-semibold text-[#6B0F1A]">
+              <TrendingUp className="h-3.5 w-3.5" /> 3. HİZMET DİKEYİ
+            </div>
+            <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
+              Stratejik Büyüme, Kurumsallığa Geçiş Danışmanlığı & Mentörlük
+            </h2>
+            <p className="mt-2 text-base text-[#5A5A5A] max-w-2xl">
+              Girişimci ve aile şirketlerinin kurumsallaşma adımlarında, ölçeklenme dönemlerinde rehberlik ve liderlik mentörlüğü veriyoruz.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <ServiceCard
+            icon={<Building2 />}
+            title="Kurumsallığa Geçiş Danışmanlığı"
+            text="Organizasyonel yapı, rol tanımları, yetki matrisleri ve sistem odaklı şirket yönetimi standartlarını kuruyoruz."
+            badge="Kurumsallaşma"
+          />
+          <ServiceCard
+            icon={<TrendingUp />}
+            title="Stratejik Büyüme (Scale-Up)"
+            text="Şirketinizin sürdürülebilir büyüme hedefleri için ticari yol haritası ve pazar genisletme stratejileri tasarlıyoruz."
+            badge="Büyüme"
+          />
+          <ServiceCard
+            icon={<Users />}
+            title="Üst Düzey Yönetici Mentörlüğü"
+            text="Şirket sahipleri ve üst düzey yöneticiler için birebir stratejik karar, liderlik ve yönetim mentörlüğü sağlıyoruz."
+            badge="Mentörlük"
+          />
+          <ServiceCard
+            icon={<Briefcase />}
+            title="Ticari Model Rehberliği"
+            text="Gelir modelleri, fiyatlama stratejileri ve karlılık odaklı iş yapış modelleri geliştiriyoruz."
+            badge="Ticari Strateji"
+          />
+        </div>
+      </section>
+
+      {/* NEW SECTION: REFERANS ÇALIŞMALARIMIZ (MARKALAR) */}
+      <section id="references" className="bg-[#171717] text-white py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 w-full">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#D7B982]/20 px-3 py-1 text-xs font-semibold text-[#D7B982]">
+              <Layers className="h-3.5 w-3.5" /> İŞ ORTAKLIKLARI & SAHA TECRÜBEMİZ
+            </div>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl md:text-5xl text-white">
+              Referans Çalışmalarımız & Güvenen Markalar
+            </h2>
+            <p className="mt-4 text-base leading-7 text-white/70">
+              Saha satış yapılanması, süreç otomasyonu ve büyüme danışmanlığı alanlarında değer kattığımız başlıca marka ve sektör deneyimlerimiz.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Reference Card 1 */}
+            <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur transition hover:bg-white/10">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold tracking-widest text-[#D7B982] uppercase">HORECA & GIDA</span>
+                <Building2 className="h-5 w-5 text-white/40" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Ege & HORECA Dağıtım Kanalları</h3>
+              <p className="mt-3 text-sm text-white/70 leading-relaxed">
+                Bodrum ve Marmaris bölgesindeki otel, restoran ve cafe kanalları için doğrudan saha satış ve distribütör optimizasyonu projesi.
+              </p>
+            </div>
+
+            {/* Reference Card 2 */}
+            <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur transition hover:bg-white/10">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold tracking-widest text-[#D7B982] uppercase">İŞ SÜREÇLERİ OTOMASYONU</span>
+                <Zap className="h-5 w-5 text-white/40" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Ticari İş Süreçleri Otomasyonu</h3>
+              <p className="mt-3 text-sm text-white/70 leading-relaxed">
+                Şirket içi manuel sipariş takibi ve veri raporlama süreçlerinin otomatik dijital iş akışlarına dönüştürülmesi.
+              </p>
+            </div>
+
+            {/* Reference Card 3 */}
+            <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur transition hover:bg-white/10">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold tracking-widest text-[#D7B982] uppercase">KURUMSALLAŞMA & BÜYÜME</span>
+                <TrendingUp className="h-5 w-5 text-white/40" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Büyüme & Yönetim Mentörlüğü</h3>
+              <p className="mt-3 text-sm text-white/70 leading-relaxed">
+                Hızlı büyüyen yerel üretici firma için kurumsallaşma yol haritası, organizasyonel yapılandırma ve yönetim mentörlüğü.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS SECTION: NASIL ÇALIŞIYORUZ? */}
       <section className="bg-white/70 py-14 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-10">
           <div>
@@ -193,43 +387,43 @@ export default function CNTGLandingPage() {
               NASIL ÇALIŞIYORUZ?
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:mt-4 sm:text-4xl md:text-5xl">
-              Analizden sürdürülebilir büyümeye net bir saha akışı.
+              Analizden sürdürülebilir büyümeye net bir çalışma akışı.
             </h2>
             <p className="mt-4 text-base leading-7 text-[#5A5A5A]">
-              Her projede önce bölgeyi ve kanalı okur, sonra uygulanabilir saha
-              ritmini kurarız.
+              Her projede önce mevcut durumu ve hedefleri analiz eder, ardından saha, otomasyon ve stratejik yönetim ritmini kurarız.
             </p>
           </div>
           <div className="space-y-4 sm:space-y-5">
             <Step
               number="01"
-              title="Bölge ve kanal analizi"
-              text="Mevcut pazar, müşteri profili, kanal yapısı ve büyüme fırsatları netleştirilir."
+              title="Analiz & Mevcut Durum Tespiti"
+              text="Saha yapınız, iş süreçleriniz, verimlilik potansiyeliniz ve büyüme hedefleriniz detaylıca analiz edilir."
             />
             <Step
               number="02"
-              title="Saha yapılanması"
-              text="Ekip, rota, hedef, ziyaret ve takip ritmi uygulanabilir bir düzene alınır."
+              title="Sistem & Otomasyon Kurgusu"
+              text="Saha rotaları, süreç otomasyonları ve kurumsal standartlar uygulanabilir şekilde kurgulanır."
             />
             <Step
               number="03"
-              title="Aktif müşteri geliştirme"
-              text="Doğru nokta, doğru teklif ve düzenli temasla müşteri portföyü güçlendirilir."
+              title="Saha & Dijital Uygulama"
+              text="Ekipler bilgilendirilir, otomasyonlar devreye alınır ve saha çalışmaları aktif hale getirilir."
             />
             <Step
               number="04"
-              title="Operasyon & raporlama"
-              text="Saha çıktıları düzenli raporlanır, aksiyonlar ölçülebilir hale getirilir."
+              title="Veri Analitiği & Raporlama"
+              text="Çıktılar, verimlilik oranları ve satış performansları düzenli olarak raporlanır."
             />
             <Step
               number="05"
-              title="Sürdürülebilir büyüme"
-              text="İyileştirme döngüsüyle model kalıcı ve tekrar edilebilir bir yapıya dönüşür."
+              title="Büyüme & Sürekli Mentörlük"
+              text="İyileştirme döngüsü ve üst düzey mentörlük ile elde edilen başarı kalıcı ve sürdürülebilir hale getirilir."
             />
           </div>
         </div>
       </section>
 
+      {/* TARGET AUDIENCE SECTION */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-10">
         <div className="rounded-3xl bg-[#171717] p-6 text-white sm:rounded-[2rem] sm:p-8 md:p-12">
           <div className="grid gap-10 lg:grid-cols-2">
@@ -238,32 +432,35 @@ export default function CNTGLandingPage() {
                 KİMLER İÇİN?
               </p>
               <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:mt-4 sm:text-4xl">
-                Hizmetlerini büyütmek isteyen firmalar.
+                Büyüme ve verimlilik hedefleyen işletmeler için.
               </h2>
             </div>
             <div className="space-y-4 text-white/80">
-              <p>Yeni bölgede yapılanmak isteyen üretici ve distribütör firmalar.</p>
-              <p>
-                Mevcut saha ekibini geliştirmek ve verimliliğini ölçmek isteyen
-                şirketler.
+              <p className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[#D7B982] shrink-0 mt-1" />
+                <span>Saha satış ekibini kurmak, rota ve distribütör ağını güçlendirmek isteyen üretici ve ticari firmalar.</span>
               </p>
-              <p>
-                Hotel, restoran, catering ve yerel market kanallarında daha güçlü
-                yer almak isteyen markalar.
+              <p className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[#D7B982] shrink-0 mt-1" />
+                <span>Rutin iş süreçlerini otomatize edip verimlilik artışı ve hızlı raporlama sağlamak isteyen şirketler.</span>
+              </p>
+              <p className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[#D7B982] shrink-0 mt-1" />
+                <span>Kurumsallaşma sürecinde olan, stratejik büyüme ve üst düzey mentörlük desteği arayan işletmeler.</span>
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* CONTACT & CHATBOT SECTION */}
       <section id="contact" className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-10 w-full">
         <div className="rounded-3xl bg-[#6B0F1A] p-4 text-white sm:rounded-[2rem] sm:p-8 md:p-12 overflow-hidden">
           <h2 className="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
             Projenizi konuşalım.
           </h2>
           <p className="mt-4 max-w-2xl text-white/75">
-            Saha ve iş gelişimi, distribütör yapılanması veya yeni bölge büyümesi için
-            kısa bir ön görüşme yapabiliriz.
+            Saha satış hizmetleri, süreç otomasyonu veya kurumsallaşma & büyüme danışmanlığı için ön görüşme yapabiliriz.
           </p>
           
           <div className="mt-7 grid gap-6 sm:mt-8 sm:gap-8 lg:grid-cols-[1fr_1.5fr]">
@@ -272,13 +469,13 @@ export default function CNTGLandingPage() {
               <a href="mailto:cantug.sivri@gmail.com" className="group">
                 <div className="flex min-w-0 items-center gap-3 break-words rounded-xl bg-white/10 p-3 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl sm:p-4">
                   <Mail className="h-5 w-5 text-[#D7B982]" />
-                  <span className="min-w-0 break-words">cantug.sivri@gmail.com</span>
+                  <span className="min-w-0 break-words text-sm sm:text-base">cantug.sivri@gmail.com</span>
                 </div>
               </a>
               <a href="https://www.linkedin.com/company/cntg-growth-partners" target="_blank" rel="noopener noreferrer" className="group">
                 <div className="flex min-w-0 items-center gap-3 break-words rounded-xl bg-white/10 p-3 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl sm:p-4">
                   <Linkedin className="h-5 w-5 text-[#D7B982]" />
-                  <span>LinkedIn Profilimiz</span>
+                  <span className="text-sm sm:text-base">LinkedIn Profilimiz</span>
                 </div>
               </a>
             </div>
@@ -287,13 +484,11 @@ export default function CNTGLandingPage() {
             <div className="min-w-0 rounded-2xl bg-white/5 p-3 ring-1 ring-white/10 backdrop-blur-sm sm:p-6">
               <div className="mb-4 flex items-center gap-3 border-b border-white/10 pb-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D7B982] text-[#6B0F1A] shadow-lg ring-1 ring-white/20">
-                  <div className="flex flex-col items-center leading-none">
-                    <span className="font-serif text-xl font-bold tracking-wide">C</span>
-                  </div>
+                  <span className="font-serif text-xl font-bold tracking-wide">C</span>
                 </div>
                 <div>
                   <h3 className="font-semibold text-white">CNTG Dijital Asistan</h3>
-                  <p className="text-xs text-white/60">Sizinle tanışmak için burada</p>
+                  <p className="text-xs text-white/60">Sizinle tanışmak ve ihtiyacınızı öğrenmek için burada</p>
                 </div>
               </div>
               <ChatbotForm />
@@ -305,14 +500,21 @@ export default function CNTGLandingPage() {
   );
 }
 
-function ServiceCard({ icon, title, text }: ServiceCardProps) {
+function ServiceCard({ icon, title, text, badge }: ServiceCardProps) {
   return (
-    <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-xl sm:rounded-[1.5rem] sm:p-6">
-      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-[#6B0F1A]/10 text-[#6B0F1A] sm:mb-6 sm:h-12 sm:w-12 sm:rounded-2xl">
-        {React.cloneElement(icon, { className: "h-6 w-6" })}
+    <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-xl sm:rounded-[1.5rem] sm:p-6 flex flex-col justify-between">
+      <div>
+        {badge && (
+          <span className="inline-block rounded-full bg-[#6B0F1A]/10 px-2.5 py-0.5 text-[10px] font-bold text-[#6B0F1A] uppercase tracking-wider mb-3">
+            {badge}
+          </span>
+        )}
+        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#6B0F1A]/10 text-[#6B0F1A]">
+          {React.cloneElement(icon, { className: "h-5 w-5" })}
+        </div>
+        <h3 className="text-lg font-bold sm:text-xl text-[#171717]">{title}</h3>
+        <p className="mt-2 text-sm leading-6 text-[#5A5A5A]">{text}</p>
       </div>
-      <h3 className="text-lg font-semibold sm:text-xl">{title}</h3>
-      <p className="mt-3 leading-7 text-[#5A5A5A]">{text}</p>
     </div>
   );
 }
@@ -329,15 +531,6 @@ function Step({ number, title, text }: StepProps) {
           <p className="mt-2 leading-7 text-[#5A5A5A]">{text}</p>
         </div>
       </div>
-    </div>
-  );
-}
-
-function ContactItem({ icon, text }: ContactItemProps) {
-  return (
-    <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
-      {React.cloneElement(icon, { className: "h-5 w-5 text-[#D7B982]" })}
-      <span>{text}</span>
     </div>
   );
 }
@@ -388,7 +581,6 @@ function ChatbotForm() {
         const errorBody = await response.json().catch(() => null);
         throw new Error(errorBody?.error || "Email gönderimi başarısız oldu.");
       }
-
     } catch (error) {
       console.error("Email gönderim hatası:", error);
     }
@@ -399,7 +591,7 @@ function ChatbotForm() {
     role: "bot",
     content: (
       <>
-        Değerli ziyaretçimiz, merhaba! Ben CNTG'nin dijital asistanı. Sizinle en doğru şekilde iletişime geçebilmemiz için kısaca tanışmak isterim. <br /><br />
+        Değerli ziyaretçimiz, merhaba! Ben CNTG Growth Partners dijital asistanı. Sizinle en doğru şekilde iletişime geçebilmemiz için kısaca tanışmak isterim. <br /><br />
         <strong>Öncelikle, değerli şirketinizin adını öğrenebilir miyim lütfen?</strong>
       </>
     )
@@ -427,19 +619,16 @@ function ChatbotForm() {
     return () => window.clearTimeout(focusTimer);
   }, [isTyping, step]);
 
-
   const handleNext = () => {
     if (inputValue.trim() === "") return;
     
     const userText = inputValue.trim();
     const currentStep = step;
     
-    // Ziyaretçinin mesajını ekle
     setMessages(prev => [...prev, { id: Date.now().toString(), role: "user", content: userText }]);
     setInputValue("");
     setIsTyping(true);
 
-    // Yarım saniye sonra botun cevabını ekle
     setTimeout(() => {
       let nextBotMessage: React.ReactNode = "";
       
@@ -485,18 +674,18 @@ function ChatbotForm() {
         updateFormDataField("phone", userText);
         nextBotMessage = (
           <>
-            İletişim bilgilerinizi kaydettim, çok naziksiniz. Son olarak, <strong>aşağıdaki hizmetlerimizden hangisiyle ilgilenmektesiniz?</strong>
+            İletişim bilgilerinizi kaydettim, çok naziksiniz. Son olarak, <strong>aşağıdaki ana hizmetlerimizden hangisiyle ilgilenmektesiniz?</strong>
             <div className="mt-4 flex flex-col gap-2">
               {[
-                "Sıfırdan Bölge ve Saha Yapılanması",
-                "Mevcut Ekip Verimlilik ve Gelişim Analizi",
-                "Distribütör Yapılandırması ve Yönetimi",
-                "Diğer"
+                "1. Saha Satış, Büyüme ve Operasyon Hizmetleri",
+                "2. İş Süreçleri Otomasyonu, Verimlilik ve Analiz Çalışmaları",
+                "3. Stratejik Büyüme, Kurumsallığa Geçiş Danışmanlığı & Mentörlük",
+                "Diğer / Genel Bilgi"
               ].map((item) => (
                 <button
                   key={item}
                   onClick={() => handleServiceSelect(item)}
-                  className="rounded-lg bg-[#D7B982]/20 px-4 py-2 text-left text-sm font-medium text-[#D7B982] transition hover:bg-[#D7B982]/30"
+                  className="rounded-lg bg-[#D7B982]/20 px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-[#D7B982] transition hover:bg-[#D7B982]/30"
                 >
                   {item}
                 </button>
@@ -508,11 +697,10 @@ function ChatbotForm() {
       } else if (currentStep === 5) {
         nextBotMessage = (
           <>
-            <strong>Bilgileriniz için çok teşekkür ederiz!</strong> İhtiyaçlarınızı kaydettik. Ekibimiz "Biz İletişime Geçelim Sizlerle" prensibiyle en kısa sürede tarafınıza dönüş sağlayacaktır. İyi çalışmalar dileriz!
+            <strong>Bilgileriniz için çok teşekkür ederiz!</strong> İhtiyaçlarınızı kaydettik. Ekibimiz en kısa sürede tarafınıza dönüş sağlayacaktır. İyi çalışmalar dileriz!
           </>
         );
         setStep(6);
-        // Step 6'ya geçerken mail gönderimini tetikle (OtherService bittiğinde)
         const finalData = { ...formDataRef.current, service: "Diğer", otherService: userText };
         updateFormData(finalData);
         sendEmailNotification(finalData);
@@ -536,14 +724,13 @@ function ChatbotForm() {
     setTimeout(() => {
       let nextBotMessage: React.ReactNode = "";
       
-      if (service !== "Diğer") {
+      if (service !== "Diğer / Genel Bilgi") {
         nextBotMessage = (
           <>
-            <strong>Tercihiniz için çok teşekkür ederiz!</strong> İlgili ekibimiz "Biz İletişime Geçelim Sizlerle" prensibiyle en kısa sürede sizinle iletişime geçecektir. Güzel bir gün dileriz!
+            <strong>Tercihiniz için çok teşekkür ederiz!</strong> İlgili konunuzla alakalı uzman ekibimiz en kısa sürede sizinle iletişime geçecektir. Güzel bir gün dileriz!
           </>
         );
         setStep(6);
-        // Step 6'ya geçerken mail gönderimini tetikle (Normal hizmet bittiğinde)
         const finalData = { ...formDataRef.current, service };
         updateFormData(finalData);
         sendEmailNotification(finalData);
@@ -577,7 +764,7 @@ function ChatbotForm() {
             <div 
               className={`w-fit max-w-[min(92%,32rem)] break-words rounded-2xl p-3 text-sm leading-relaxed sm:max-w-[min(85%,32rem)] sm:p-4 ${
                 msg.role === "user" 
-                  ? "bg-[#D7B982] text-[#6B0F1A] rounded-tr-sm" 
+                  ? "bg-[#D7B982] text-[#6B0F1A] rounded-tr-sm font-medium" 
                   : "bg-white/10 text-white rounded-tl-sm"
               }`}
             >
