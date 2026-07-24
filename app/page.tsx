@@ -53,54 +53,55 @@ export default function CNTGLandingPage() {
         <div className="absolute -right-28 top-0 h-[320px] w-[320px] rounded-full bg-[#6B0F1A]/10 blur-3xl sm:h-[520px] sm:w-[720px]" />
         <div className="absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-[#F7F2EA] to-transparent" />
 
-        <div className="relative mx-auto flex w-full max-w-7xl flex-col px-4 pb-12 pt-5 sm:px-6 sm:py-10 lg:px-10">
-          {/* HEADER */}
-          <header className="relative flex h-[5.25rem] items-center justify-between sm:h-28 lg:h-28">
-            <div className="flex min-w-0 flex-col items-start sm:items-center sm:absolute sm:left-[10%] sm:-translate-x-1/2 lg:left-[20%]">
-              <div className="flex flex-col items-center w-full max-w-[90vw]">
-                <div className="h-[3px] w-full bg-[#6B0F1A] mb-1"></div>
-                <div className="font-serif text-[2.2rem] leading-none font-bold tracking-wide text-[#6B0F1A] sm:text-[3.5rem] md:text-[5rem] lg:text-[5.5rem]">
+        <div className="relative mx-auto flex w-full max-w-7xl flex-col px-4 pb-10 pt-4 sm:px-6 sm:py-8 lg:px-10">
+          {/* HEADER (PERFECTLY CENTERED LOGO) */}
+          <header className="relative flex items-center justify-center py-4 sm:py-6 border-b border-[#6B0F1A]/10">
+            <div className="flex flex-col items-center text-center">
+              <div className="flex flex-col items-center w-[200px] sm:w-[280px] md:w-[320px]">
+                <div className="h-[2.5px] w-full bg-[#6B0F1A] mb-1"></div>
+                <div className="font-serif text-[2.4rem] sm:text-[3.5rem] md:text-[4.2rem] leading-none font-bold tracking-wider text-[#6B0F1A]">
                   CNTG
                 </div>
-                <div className="h-[3px] w-full bg-[#6B0F1A] mt-2 mb-2"></div>
+                <div className="h-[2.5px] w-full bg-[#6B0F1A] mt-1 mb-1"></div>
               </div>
-              <div className="whitespace-nowrap text-[0.45rem] font-semibold tracking-[0.2em] text-[#6B0F1A] sm:text-[0.6rem] sm:tracking-[0.35em] md:text-xs">
+              <div className="whitespace-nowrap text-[0.5rem] sm:text-[0.65rem] md:text-xs font-semibold tracking-[0.3em] text-[#6B0F1A] mt-0.5">
                 GROWTH PARTNERS
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            
+            <div className="absolute right-0 top-1/2 -translate-y-1/2">
               <a
                 href="#contact"
-                className="z-10 inline-flex items-center justify-center rounded-full bg-[#6B0F1A] px-5 py-2 text-xs sm:text-sm font-medium text-white shadow-md transition hover:bg-[#530A13]"
+                className="z-10 inline-flex items-center justify-center rounded-full bg-[#6B0F1A] px-3.5 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium text-white shadow-md transition hover:bg-[#530A13]"
               >
-                İletişime Geç <ArrowRight className="ml-1.5 h-4 w-4" />
+                İletişime Geç <ArrowRight className="ml-1 sm:ml-1.5 h-3.5 w-3.5" />
               </a>
             </div>
           </header>
 
-          {/* HERO CONTENT */}
-          <div className="pt-8 sm:pt-12 pb-6 max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-4 py-1.5 text-xs font-semibold text-[#6B0F1A] mb-4 sm:mb-6">
+          {/* HERO CONTENT (SHORT & CLEAN) */}
+          <div className="pt-8 sm:pt-10 pb-4 max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-3.5 py-1 text-xs font-semibold text-[#6B0F1A] mb-4">
               <Sparkles className="h-3.5 w-3.5" />
               <span>SAHA • OTOMASYON • KURUMSALLAŞMA & BÜYÜME</span>
             </div>
 
-            <h1 className="text-3xl font-semibold leading-tight tracking-[-0.03em] text-[#171717] sm:text-5xl md:text-6xl md:tracking-[-0.04em]">
+            <h1 className="text-2xl font-semibold leading-tight tracking-[-0.03em] text-[#171717] sm:text-4xl md:text-5xl lg:text-6xl md:tracking-[-0.04em]">
               İşletmeniz için sürdürülebilir büyüme ve operasyonel verimlilik sistemleri kuruyoruz.
             </h1>
 
-            <p className="mt-5 text-base leading-7 text-[#4B4B4B] sm:mt-7 sm:text-xl sm:leading-8 max-w-3xl mx-auto">
-              CNTG Growth Partners; işletmelerin saha satış yapılanmasından iş süreçlerinin dijital otomasyonuna, verimlilik analizlerinden kurumsallığa geçiş ve stratejik mentörlüğe kadar tüm büyüme yolculuğunda bütünsel çözümler sunar.
+            <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#4B4B4B] max-w-xl mx-auto font-medium">
+              Saha satış operasyonları, süreç otomasyonu ve kurumsallaşma rehberliği ile işinizi büyütüyoruz.
             </p>
           </div>
 
           {/* 3 MAIN INTERACTIVE SERVICE BOXES (GRID) */}
-          <div className="mt-6 sm:mt-10" id="services-overview">
-            <div className="text-center mb-6">
+          <div className="mt-6 sm:mt-8" id="services-overview">
+            <div className="text-center mb-5">
               <p className="text-xs font-semibold tracking-[0.2em] text-[#6B0F1A] uppercase">
                 3 Ana Hizmet Alanımız
               </p>
-              <h2 className="text-xl sm:text-2xl font-bold mt-1">İlgilendiğiniz Hizmet Kutusunu Seçin</h2>
+              <h2 className="text-lg sm:text-2xl font-bold mt-1">İlgilendiğiniz Hizmet Kutusunu Seçin</h2>
             </div>
 
             <div className="grid gap-5 md:grid-cols-3">
@@ -300,7 +301,7 @@ export default function CNTGLandingPage() {
           <ServiceCard
             icon={<Building2 />}
             title="Kurumsallığa Geçiş Danışmanlığı"
-            text="Organizasyonel yapı, rol tanımları, yetki matrisleri ve sistem odaklı şirket yönetimi standartlarını kuruyoruz."
+            text="Organizasyonel yapı, rol tanımları, yetki matrisleri ve sistem odaklı şirket yönetimi standartlarını kurıyoruz."
             badge="Kurumsallaşma"
           />
           <ServiceCard
@@ -765,7 +766,7 @@ function ChatbotForm() {
               className={`w-fit max-w-[min(92%,32rem)] break-words rounded-2xl p-3 text-sm leading-relaxed sm:max-w-[min(85%,32rem)] sm:p-4 ${
                 msg.role === "user" 
                   ? "bg-[#D7B982] text-[#6B0F1A] rounded-tr-sm font-medium" 
-                  : "bg-white/10 text-white rounded-tl-sm"
+                  : "bg-white/10 text-[#ffffff] rounded-tl-sm"
               }`}
             >
               {msg.content}
