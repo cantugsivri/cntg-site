@@ -108,9 +108,6 @@ export default function CNTGLandingPage() {
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
                     Saha Satış ve İş Geliştirme, Operasyonel Büyüme Hizmetleri
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-[#5A5A5A]">
-                    Saha satış ekibi yapılanması, rota disiplini, distribütör ağı, HORECA açılımları ve pazar giriş stratejileri.
-                  </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
                   <span>Detayları İncele</span>
@@ -130,9 +127,6 @@ export default function CNTGLandingPage() {
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
                     İş Süreçleri Analizi, Verimlilik ve Otomasyon Hizmetleri
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-[#5A5A5A]">
-                    Süreç otomasyonu, manuel işlerin dijitalleşmesi, veri analitiği, hızlı raporlama ve verimlilik artışı.
-                  </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
                   <span>Detayları İncele</span>
@@ -152,9 +146,6 @@ export default function CNTGLandingPage() {
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
                     Şirket Kurulum, Stratejik Büyüme ve Yönetim Danışmanlığı
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-[#5A5A5A]">
-                    Kurumsallaşma adımları, scale-up stratejisi, üst düzey yönetici mentörlüğü ve ticari büyüme rehberliği.
-                  </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
                   <span>Detayları İncele</span>
