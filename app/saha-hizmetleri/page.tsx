@@ -193,7 +193,7 @@ export default function SahaHizmetleri() {
                   <span className="text-sm sm:text-base">cantug.sivri@gmail.com</span>
                 </div>
               </a>
-              <a href="https://www.linkedin.com/company/cntg-growth-partners" target="_blank" rel="noopener noreferrer" className="group">
+              <a href="https://www.linkedin.com/company/122203956" target="_blank" rel="noopener noreferrer" className="group">
                 <div className="flex items-center gap-3 rounded-xl bg-white/10 p-3 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl sm:p-4">
                   <Linkedin className="h-5 w-5 text-[#D7B982]" />
                   <span className="text-sm sm:text-base">LinkedIn Profilimiz</span>
