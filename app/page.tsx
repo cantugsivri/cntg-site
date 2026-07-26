@@ -81,27 +81,18 @@ export default function CNTGLandingPage() {
 
           {/* HERO CONTENT (SHORT & CLEAN) */}
           <div className="pt-8 sm:pt-10 pb-4 max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-3.5 py-1 text-xs font-semibold text-[#6B0F1A] mb-4">
-              <Sparkles className="h-3.5 w-3.5" />
-              <span>SAHA • OTOMASYON • KURUMSALLAŞMA & BÜYÜME</span>
-            </div>
-
             <h1 className="text-2xl font-semibold leading-tight tracking-[-0.03em] text-[#171717] sm:text-4xl md:text-5xl lg:text-6xl md:tracking-[-0.04em]">
               İşletmeniz için sürdürülebilir büyüme ve operasyonel verimlilik sistemleri kuruyoruz.
             </h1>
-
-            <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#4B4B4B] max-w-xl mx-auto font-medium">
-              Saha satış operasyonları, süreç otomasyonu ve kurumsallaşma rehberliği ile işinizi büyütüyoruz.
-            </p>
           </div>
 
           {/* 3 MAIN INTERACTIVE SERVICE BOXES (GRID) */}
           <div className="mt-6 sm:mt-8" id="services-overview">
             <div className="text-center mb-5">
-              <p className="text-xs font-semibold tracking-[0.2em] text-[#6B0F1A] uppercase">
+              <p className="text-base sm:text-xl font-bold tracking-[0.15em] text-[#6B0F1A] uppercase">
                 3 Ana Hizmet Alanımız
               </p>
-              <h2 className="text-lg sm:text-2xl font-bold mt-1">İlgilendiğiniz Hizmet Kutusunu Seçin</h2>
+              <h2 className="text-sm sm:text-base font-medium mt-1 text-[#4B4B4B]">İlgilendiğiniz hizmet kutusunu seçin</h2>
             </div>
 
             <div className="grid gap-5 md:grid-cols-3">
