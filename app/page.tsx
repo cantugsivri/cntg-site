@@ -218,30 +218,21 @@ export default function CNTGLandingPage() {
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <ServiceCard
             icon={<Cpu />}
-            title="İş Süreçleri Otomasyonu"
-            text="Tekrarlayan iş süreçlerini dijital otomasyon sistemlerine devrederek iş yükünü ve süreç sürelerini minimuma indiriyoruz."
-            badge="Otomasyon"
+            title="Süreç Analizi - Şirket Check-Up Çalışması"
+            text=""
           />
           <ServiceCard
             icon={<Zap />}
-            title="Verimlilik Artış Analizleri"
-            text="Şirket içi darboğazları tespit ediyor, zaman ve maliyet kayıplarını önleyen verimlilik çözümleri sunuyoruz."
-            badge="Verimlilik"
+            title="Gelişim Alanlarını Yönlendirme"
+            text=""
           />
           <ServiceCard
             icon={<BarChart3 />}
-            title="Veri Analizi & Raporlama"
-            text="Satış, operasyon ve müşteri verilerini anlık izlenebilir grafiksel karar destek panellerine dönüştürüyoruz."
-            badge="Veri Analitiği"
-          />
-          <ServiceCard
-            icon={<Bot />}
-            title="Akıllı Süreç Entegrasyonu"
-            text="Mevcut yazılımlarınızı ve akışlarınızı akıllı dijital araçlar ve entegrasyonlar ile güçlendiriyoruz."
-            badge="Entegrasyon"
+            title="Yeni Düzen Süreç Yönetimi"
+            text=""
           />
         </div>
       </section>
