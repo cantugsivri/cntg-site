@@ -202,7 +202,7 @@ export default function CNTGLandingPage() {
               </h3>
             </div>
             <p className="text-sm font-medium text-[#4B4B4B]">
-              📍 Ege&apos;de sahada aktif olarak çalışıyoruz. Türkiye geneli projeler için de iletişime geçebilirsiniz.
+              📍 Ege&apos;de sahada aktif olarak çalışıyoruz. Türkiye geneli projeler için de bizimle iletişime geçebilirsiniz.
             </p>
           </div>
         </div>
