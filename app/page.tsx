@@ -212,15 +212,9 @@ export default function CNTGLandingPage() {
       <section id="otomasyon-analiz" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-10 w-full border-t border-black/5 bg-white/40">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-3 py-1 text-xs font-semibold text-[#6B0F1A]">
-              <Zap className="h-3.5 w-3.5" /> 2. HİZMET DİKEYİ
-            </div>
-            <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
-              İş Süreçleri Otomasyonu, Verimlilik ve Analiz Çalışmaları
+            <h2 className="text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
+              2. İş Süreçleri Analizi, Verimlilik ve Otomasyon Hizmetleri
             </h2>
-            <p className="mt-2 text-base text-[#5A5A5A] max-w-2xl">
-              Rutin iş akışlarını otomatikleştirerek insan hatasını azaltıyor, operasyonel hızı ve veri bazlı verimliliği artırıyoruz.
-            </p>
           </div>
         </div>
 
