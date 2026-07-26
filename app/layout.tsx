@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   }
 };
 
+import ScrollToTop from "./ScrollToTop";
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -20,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <body>{children}</body>
+      <body>
+        <ScrollToTop />
+        {children}
+      </body>
     </html>
   );
 }
