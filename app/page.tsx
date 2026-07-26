@@ -161,42 +161,32 @@ export default function CNTGLandingPage() {
       <section id="saha-hizmetleri" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-10 w-full border-t border-black/5">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-3 py-1 text-xs font-semibold text-[#6B0F1A]">
-              <Target className="h-3.5 w-3.5" /> 1. HİZMET DİKEYİ
-            </div>
-            <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
-              Saha Satış, Büyüme ve Operasyon Hizmetleri
+            <h2 className="text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
+              1. Saha Satış ve İş Geliştirme, Operasyonel Büyüme Hizmetleri
             </h2>
-            <p className="mt-2 text-base text-[#5A5A5A] max-w-2xl">
-              Sahada ölçülebilir sonuçlar üreten satış ekipleri, distribütör ilişkileri ve route-to-market sistemleri kuruyoruz.
-            </p>
           </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <ServiceCard
             icon={<Target />}
-            title="Saha Satış Ekip Yapılanması"
-            text="Ekip hedefi, ziyaret rotaları ve performans takiplerini ölçülebilir ve disiplinli bir düzene oturtuyoruz."
-            badge="Saha Disiplini"
+            title="Sahada B2B Satış Gerçekleştirmek ve Mevcut Sistemi Geliştirmek"
+            text=""
           />
           <ServiceCard
             icon={<Network />}
-            title="Distribütör Yapılandırması"
-            text="Doğru distribütör seçimi, sorumluluk alanlarının belirlenmesi ve sevk/satış takibini kurguluyoruz."
-            badge="Kanal Yönetimi"
+            title="Distribütör Yapılanması / Uçtan Uca Yönetim"
+            text=""
           />
           <ServiceCard
             icon={<MapPinned />}
-            title="HORECA & Bölgesel Açılım"
-            text="Otel, restoran, kafeterya ve yerel kanallarda Muğla, Bodrum, Marmaris, Fethiye ve Ege genelinde büyüme sağlıyoruz."
-            badge="Ege Odaklı"
+            title="Horeca Genişlemesi / +Yeni Müşteri"
+            text=""
           />
           <ServiceCard
             icon={<BarChart3 />}
-            title="Route to Market Stratejisi"
-            text="Yeni bölge ve kanal girişlerinde pazara en hızlı ve verimli ulaşma stratejisini sahada uyguluyoruz."
-            badge="Pazara Giriş"
+            title="Bölgesel Pazar Analizleri ve Strateji Geliştirme"
+            text=""
           />
         </div>
 
