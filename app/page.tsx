@@ -144,7 +144,7 @@ export default function CNTGLandingPage() {
                     <TrendingUp className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
-                    Şirket Kurulum, Stratejik Büyüme ve Yönetim Danışmanlığı
+                    Şirket Stratejik Büyüme ve Yönetim Partnerliği
                   </h3>
                 </div>
                 <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
@@ -237,46 +237,36 @@ export default function CNTGLandingPage() {
         </div>
       </section>
 
-      {/* DETAILED SECTION 3: STRATEJİK BÜYÜME, KURUMSALLIĞA GEÇİŞ DANIŞMANLIĞI & MENTÖRLÜK */}
+      {/* DETAILED SECTION 3: STRATEJİK BÜYÜME VE YÖNETİM PARTNERLİĞİ */}
       <section id="kurumsallik-mentorluk" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-10 w-full border-t border-black/5">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#6B0F1A]/10 px-3 py-1 text-xs font-semibold text-[#6B0F1A]">
-              <TrendingUp className="h-3.5 w-3.5" /> 3. HİZMET DİKEYİ
-            </div>
-            <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
-              Stratejik Büyüme, Kurumsallığa Geçiş Danışmanlığı & Mentörlük
+            <h2 className="text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
+              3. Stratejik Büyüme ve Yönetim Partnerliği
             </h2>
-            <p className="mt-2 text-base text-[#5A5A5A] max-w-2xl">
-              Girişimci ve aile şirketlerinin kurumsallaşma adımlarında, ölçeklenme dönemlerinde rehberlik ve liderlik mentörlüğü veriyoruz.
-            </p>
           </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <ServiceCard
             icon={<Building2 />}
-            title="Kurumsallığa Geçiş Danışmanlığı"
-            text="Organizasyonel yapı, rol tanımları, yetki matrisleri ve sistem odaklı şirket yönetimi standartlarını kurıyoruz."
-            badge="Kurumsallaşma"
+            title="Stratejik Büyüme Partnerliği"
+            text=""
           />
           <ServiceCard
             icon={<TrendingUp />}
-            title="Stratejik Büyüme (Scale-Up)"
-            text="Şirketinizin sürdürülebilir büyüme hedefleri için ticari yol haritası ve pazar genisletme stratejileri tasarlıyoruz."
-            badge="Büyüme"
+            title="Kilit Süreç Yönetimi"
+            text=""
           />
           <ServiceCard
             icon={<Users />}
-            title="Üst Düzey Yönetici Mentörlüğü"
-            text="Şirket sahipleri ve üst düzey yöneticiler için birebir stratejik karar, liderlik ve yönetim mentörlüğü sağlıyoruz."
-            badge="Mentörlük"
+            title="Profesyonel İç ve Dış Kurulum"
+            text=""
           />
           <ServiceCard
             icon={<Briefcase />}
-            title="Ticari Model Rehberliği"
-            text="Gelir modelleri, fiyatlama stratejileri ve karlılık odaklı iş yapış modelleri geliştiriyoruz."
-            badge="Ticari Strateji"
+            title="Ticari Model Yaratımı"
+            text=""
           />
         </div>
       </section>
