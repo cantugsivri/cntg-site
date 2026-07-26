@@ -181,37 +181,37 @@ export default function SahaHizmetleri() {
       {/* CONTACT */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-10 w-full">
         <div className="rounded-3xl bg-[#6B0F1A] p-4 text-white sm:rounded-[2rem] sm:p-8 md:p-12 overflow-hidden">
-          <h2 className="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Projenizi konuşalım.</h2>
-          <p className="mt-4 max-w-2xl text-white/75">
-            Saha satış ve iş geliştirme hizmetleri için ön görüşme yapabiliriz.
-          </p>
-          <div className="mt-7 grid gap-6 sm:mt-8 sm:gap-8 lg:grid-cols-[1fr_1.5fr]">
-            <div className="flex min-w-0 flex-col gap-3 sm:gap-4">
-              <a href="mailto:cantug.sivri@gmail.com" className="group">
-                <div className="flex items-center gap-3 rounded-xl bg-white/10 p-3 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl sm:p-4">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Projenizi konuşalım.</h2>
+            <p className="mt-4 text-white/75">
+              Saha satış ve iş geliştirme hizmetleri için ön görüşme yapabiliriz.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+              <a href="mailto:cantug.sivri@gmail.com" className="group w-full sm:w-auto">
+                <div className="flex items-center justify-center gap-3 rounded-xl bg-white/10 px-6 py-3.5 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl">
                   <Mail className="h-5 w-5 text-[#D7B982]" />
-                  <span className="text-sm sm:text-base">cantug.sivri@gmail.com</span>
+                  <span className="text-sm sm:text-base font-medium">Mail İçin Tıklayabilirsiniz</span>
                 </div>
               </a>
-              <a href="https://www.linkedin.com/company/122203956" target="_blank" rel="noopener noreferrer" className="group">
-                <div className="flex items-center gap-3 rounded-xl bg-white/10 p-3 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl sm:p-4">
+              <a href="https://www.linkedin.com/company/122203956" target="_blank" rel="noopener noreferrer" className="group w-full sm:w-auto">
+                <div className="flex items-center justify-center gap-3 rounded-xl bg-white/10 px-6 py-3.5 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl">
                   <Linkedin className="h-5 w-5 text-[#D7B982]" />
-                  <span className="text-sm sm:text-base">LinkedIn Profilimiz</span>
+                  <span className="text-sm sm:text-base font-medium">LinkedIn Profilimiz</span>
                 </div>
               </a>
             </div>
-            <div className="min-w-0 rounded-2xl bg-white/5 p-3 ring-1 ring-white/10 backdrop-blur-sm sm:p-6">
-              <div className="mb-4 flex items-center gap-3 border-b border-white/10 pb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D7B982] text-[#6B0F1A] shadow-lg ring-1 ring-white/20">
-                  <span className="font-serif text-xl font-bold tracking-wide">C</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">CNTG Dijital Asistan</h3>
-                  <p className="text-xs text-white/60">Sizinle tanışmak ve ihtiyacınızı öğrenmek için burada</p>
-                </div>
+          </div>
+          <div className="mt-8 sm:mt-12 max-w-3xl mx-auto min-w-0 rounded-2xl bg-white/5 p-3 ring-1 ring-white/10 backdrop-blur-sm sm:p-6 text-left">
+            <div className="mb-4 flex items-center gap-3 border-b border-white/10 pb-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D7B982] text-[#6B0F1A] shadow-lg ring-1 ring-white/20">
+                <span className="font-serif text-xl font-bold tracking-wide">C</span>
               </div>
-              <ChatbotForm />
+              <div>
+                <h3 className="font-semibold text-white">CNTG Dijital Asistan</h3>
+                <p className="text-xs text-white/60">Sizinle tanışmak ve ihtiyacınızı öğrenmek için burada</p>
+              </div>
             </div>
+            <ChatbotForm />
           </div>
         </div>
       </section>
