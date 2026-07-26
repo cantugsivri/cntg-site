@@ -105,9 +105,8 @@ export default function CNTGLandingPage() {
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#6B0F1A]/10 text-[#6B0F1A] transition group-hover:bg-[#6B0F1A] group-hover:text-white">
                     <Target className="h-6 w-6" />
                   </div>
-                  <div className="text-xs font-semibold tracking-wider text-[#6B0F1A] uppercase mb-1">01. HİZMET ALANI</div>
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
-                    Saha Satış, Büyüme ve Operasyon Hizmetleri
+                    Saha Satış ve İş Geliştirme, Operasyonel Büyüme Hizmetleri
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-[#5A5A5A]">
                     Saha satış ekibi yapılanması, rota disiplini, distribütör ağı, HORECA açılımları ve pazar giriş stratejileri.
@@ -128,9 +127,8 @@ export default function CNTGLandingPage() {
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#6B0F1A]/10 text-[#6B0F1A] transition group-hover:bg-[#6B0F1A] group-hover:text-white">
                     <Zap className="h-6 w-6" />
                   </div>
-                  <div className="text-xs font-semibold tracking-wider text-[#6B0F1A] uppercase mb-1">02. HİZMET ALANI</div>
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
-                    İş Süreçleri Otomasyonu, Verimlilik ve Analiz Çalışmaları
+                    İş Süreçleri Analizi, Verimlilik ve Otomasyon Hizmetleri
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-[#5A5A5A]">
                     Süreç otomasyonu, manuel işlerin dijitalleşmesi, veri analitiği, hızlı raporlama ve verimlilik artışı.
@@ -151,9 +149,8 @@ export default function CNTGLandingPage() {
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#6B0F1A]/10 text-[#6B0F1A] transition group-hover:bg-[#6B0F1A] group-hover:text-white">
                     <TrendingUp className="h-6 w-6" />
                   </div>
-                  <div className="text-xs font-semibold tracking-wider text-[#6B0F1A] uppercase mb-1">03. HİZMET ALANI</div>
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
-                    Stratejik Büyüme, Kurumsallığa Geçiş Danışmanlığı & Mentörlük
+                    Şirket Kurulum, Stratejik Büyüme ve Yönetim Danışmanlığı
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-[#5A5A5A]">
                     Kurumsallaşma adımları, scale-up stratejisi, üst düzey yönetici mentörlüğü ve ticari büyüme rehberliği.
