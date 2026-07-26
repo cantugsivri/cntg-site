@@ -97,8 +97,8 @@ export default function CNTGLandingPage() {
 
             <div className="grid gap-5 md:grid-cols-3">
               {/* Pillar 1 Box */}
-              <div 
-                onClick={() => scrollToSection("saha-hizmetleri")}
+              <a
+                href="/saha-hizmetleri"
                 className="group cursor-pointer rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:-translate-y-1.5 hover:shadow-2xl hover:ring-[#6B0F1A]/30 flex flex-col justify-between"
               >
                 <div>
@@ -113,11 +113,11 @@ export default function CNTGLandingPage() {
                   <span>Detayları İncele</span>
                   <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </div>
-              </div>
+              </a>
 
               {/* Pillar 2 Box */}
-              <div 
-                onClick={() => scrollToSection("otomasyon-analiz")}
+              <a
+                href="/otomasyon-hizmetleri"
                 className="group cursor-pointer rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:-translate-y-1.5 hover:shadow-2xl hover:ring-[#6B0F1A]/30 flex flex-col justify-between"
               >
                 <div>
@@ -132,11 +132,11 @@ export default function CNTGLandingPage() {
                   <span>Detayları İncele</span>
                   <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </div>
-              </div>
+              </a>
 
               {/* Pillar 3 Box */}
-              <div 
-                onClick={() => scrollToSection("kurumsallik-mentorluk")}
+              <a
+                href="/buyume-danismanligi"
                 className="group cursor-pointer rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:-translate-y-1.5 hover:shadow-2xl hover:ring-[#6B0F1A]/30 flex flex-col justify-between"
               >
                 <div>
@@ -151,7 +151,7 @@ export default function CNTGLandingPage() {
                   <span>Detayları İncele</span>
                   <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
