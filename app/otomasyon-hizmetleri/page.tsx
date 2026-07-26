@@ -145,7 +145,7 @@ export default function OtomasyonHizmetleri() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <ServiceCard icon={<Cpu />} title="Süreç Analizi - Şirket Check-Up Çalışması" text="" />
           <ServiceCard icon={<Zap />} title="Gelişim Alanlarını Yönlendirme" text="" />
-          <ServiceCard icon={<BarChart3 />} title="Yeni Düzen Süreç Yönetimi" text="" />
+          <ServiceCard icon={<BarChart3 />} title="Yeni Düzen Süreç Yönetimi (AI Destekli İş Geliştirme)" text="" />
         </div>
       </section>
 
