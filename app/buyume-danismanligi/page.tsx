@@ -50,7 +50,7 @@ function ChatbotForm() {
         updateField("email", text); bot = (<><strong>Telefon numaranızı da alabilir miyim?</strong></>); setStep(3);
       } else if (cur === 3) {
         updateField("phone", text);
-        bot = (<>Bilgilerinizi kaydettim. <strong>Hangi hizmetimizle ilgileniyorsunuz?</strong><div className="mt-4 flex flex-col gap-2">{["1. Saha Satış, Büyüme ve Operasyon Hizmetleri","2. İş Süreçleri Otomasyonu, Verimlilik ve Analiz","3. Stratejik Büyüme ve Yönetim Partnerliği","Diğer / Genel Bilgi"].map(s => (<button key={s} onClick={() => handleSelect(s)} className="rounded-lg bg-[#D7B982]/20 px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-[#D7B982] transition hover:bg-[#D7B982]/30">{s}</button>))}</div></>);
+        bot = (<>Bilgilerinizi kaydettim. <strong>Hangi hizmetimizle ilgileniyorsunuz?</strong><div className="mt-4 flex flex-col gap-2">{["1. Saha Satış ve Ticari Büyüme","2. Operasyon ve Süreç Geliştirme","3. Stratejik Büyüme Partnerliği","Diğer / Genel Bilgi"].map(s => (<button key={s} onClick={() => handleSelect(s)} className="rounded-lg bg-[#D7B982]/20 px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-[#D7B982] transition hover:bg-[#D7B982]/30">{s}</button>))}</div></>);
         setStep(4);
       } else if (cur === 5) {
         bot = (<><strong>Teşekkürler!</strong> Ekibimiz en kısa sürede size dönüş yapacak.</>); setStep(6);
@@ -137,7 +137,7 @@ export default function BuyumeDanismanligi() {
           <ArrowLeft className="h-4 w-4" /> Ana Sayfa
         </a>
         <h1 className="text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
-          3. Şirket Stratejik Büyüme ve Yönetim Partnerliği
+          3. Stratejik Büyüme Partnerliği
         </h1>
       </section>
 
@@ -146,7 +146,7 @@ export default function BuyumeDanismanligi() {
           <ServiceCard icon={<Building2 />} title="Stratejik Büyüme Partnerliği" text="" />
           <ServiceCard icon={<TrendingUp />} title="Kilit Süreç Yönetimi" text="" />
           <ServiceCard icon={<Users />} title="Profesyonel İç ve Dış Kurulum" text="" />
-          <ServiceCard icon={<Briefcase />} title="Ticari Model Yaratımı" text="" />
+          <ServiceCard icon={<Briefcase />} title="Ticari İş Modeli Tasarımı" text="" />
         </div>
       </section>
 

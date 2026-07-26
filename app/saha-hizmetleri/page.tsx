@@ -53,7 +53,7 @@ function ChatbotForm() {
         updateField("email", text); bot = (<><strong>Telefon numaranızı da alabilir miyim?</strong></>); setStep(3);
       } else if (cur === 3) {
         updateField("phone", text);
-        bot = (<>Bilgilerinizi kaydettim. <strong>Hangi hizmetimizle ilgileniyorsunuz?</strong><div className="mt-4 flex flex-col gap-2">{["1. Saha Satış, Büyüme ve Operasyon Hizmetleri","2. İş Süreçleri Otomasyonu, Verimlilik ve Analiz","3. Stratejik Büyüme ve Yönetim Partnerliği","Diğer / Genel Bilgi"].map(s => (<button key={s} onClick={() => handleSelect(s)} className="rounded-lg bg-[#D7B982]/20 px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-[#D7B982] transition hover:bg-[#D7B982]/30">{s}</button>))}</div></>);
+        bot = (<>Bilgilerinizi kaydettim. <strong>Hangi hizmetimizle ilgileniyorsunuz?</strong><div className="mt-4 flex flex-col gap-2">{["1. Saha Satış ve Ticari Büyüme","2. Operasyon ve Süreç Geliştirme","3. Stratejik Büyüme Partnerliği","Diğer / Genel Bilgi"].map(s => (<button key={s} onClick={() => handleSelect(s)} className="rounded-lg bg-[#D7B982]/20 px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-[#D7B982] transition hover:bg-[#D7B982]/30">{s}</button>))}</div></>);
         setStep(4);
       } else if (cur === 5) {
         bot = (<><strong>Teşekkürler!</strong> Ekibimiz en kısa sürede size dönüş yapacak.</>); setStep(6);
@@ -149,16 +149,16 @@ export default function SahaHizmetleri() {
           <ArrowLeft className="h-4 w-4" /> Ana Sayfa
         </a>
         <h1 className="text-2xl font-bold tracking-[-0.03em] sm:text-4xl">
-          1. Saha Satış ve İş Geliştirme, Operasyonel Büyüme Hizmetleri
+          1. Saha Satış ve Ticari Büyüme
         </h1>
       </section>
 
       {/* SERVICE CARDS */}
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-10 w-full">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <ServiceCard icon={<Target />} title="Sahada B2B Satış Gerçekleştirmek ve Mevcut Sistemi Geliştirmek" text="" />
+          <ServiceCard icon={<Target />} title="B2B Satış Geliştirme" text="" />
           <ServiceCard icon={<Network />} title="Distribütör Yapılanması / Uçtan Uca Yönetim" text="" />
-          <ServiceCard icon={<MapPinned />} title="Horeca Genişlemesi / +Yeni Müşteri" text="" />
+          <ServiceCard icon={<MapPinned />} title="HORECA Kanal Geliştirme" text="" />
           <ServiceCard icon={<BarChart3 />} title="Bölgesel Pazar Analizleri ve Strateji Geliştirme" text="" />
         </div>
 

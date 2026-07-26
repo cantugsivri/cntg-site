@@ -106,7 +106,7 @@ export default function CNTGLandingPage() {
                     <Target className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
-                    Saha Satış ve İş Geliştirme, Operasyonel Büyüme Hizmetleri
+                    1. Saha Satış ve Ticari Büyüme
                   </h3>
                 </div>
                 <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
@@ -125,7 +125,7 @@ export default function CNTGLandingPage() {
                     <Zap className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
-                    İş Süreçleri Analizi, Verimlilik ve Otomasyon Hizmetleri
+                    2. Operasyon ve Süreç Geliştirme
                   </h3>
                 </div>
                 <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
@@ -144,7 +144,7 @@ export default function CNTGLandingPage() {
                     <TrendingUp className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-bold sm:text-xl text-[#171717] group-hover:text-[#6B0F1A] transition">
-                    Şirket Stratejik Büyüme ve Yönetim Partnerliği
+                    3. Stratejik Büyüme Partnerliği
                   </h3>
                 </div>
                 <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#6B0F1A]">
@@ -380,9 +380,9 @@ function ChatbotForm() {
             İletişim bilgilerinizi kaydettim, çok naziksiniz. Son olarak, <strong>aşağıdaki ana hizmetlerimizden hangisiyle ilgilenmektesiniz?</strong>
             <div className="mt-4 flex flex-col gap-2">
               {[
-                "1. Saha Satış, Büyüme ve Operasyon Hizmetleri",
-                "2. İş Süreçleri Otomasyonu, Verimlilik ve Analiz Çalışmaları",
-                "3. Stratejik Büyüme, Kurumsallığa Geçiş Danışmanlığı & Mentörlük",
+                "1. Saha Satış ve Ticari Büyüme",
+                "2. Operasyon ve Süreç Geliştirme",
+                "3. Stratejik Büyüme Partnerliği",
                 "Diğer / Genel Bilgi"
               ].map((item) => (
                 <button
