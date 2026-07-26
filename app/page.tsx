@@ -195,12 +195,14 @@ export default function CNTGLandingPage() {
           <div className="grid gap-3 sm:grid-cols-[0.8fr_1.2fr] sm:items-center">
             <div>
               <p className="text-xs font-semibold tracking-[0.2em] text-[#6B0F1A] uppercase">
-                BÖLGESEL SAHA ODAĞI
+                AKTİF SAHA BÖLGELERİMİZ
               </p>
-              <h3 className="mt-1 text-lg font-bold">Sahada yerel ritmi okuyarak büyürüz.</h3>
+              <h3 className="mt-1 text-lg font-bold">
+                <span className="font-extrabold">Bodrum</span> • Muğla • Marmaris • Fethiye • Datça
+              </h3>
             </div>
             <p className="text-sm font-medium text-[#4B4B4B]">
-              📍 Muğla • Bodrum • Marmaris • Fethiye • Ege Bölgesi & Türkiye Genel Saha Yapılanmaları
+              📍 Ege&apos;de sahada aktif olarak çalışıyoruz. Türkiye geneli projeler için de iletişime geçin.
             </p>
           </div>
         </div>
