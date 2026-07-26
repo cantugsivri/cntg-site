@@ -166,9 +166,6 @@ export default function CNTGLandingPage() {
             <h2 className="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
               Projenizi konuşalım.
             </h2>
-            <p className="mt-4 text-white/75">
-              Saha satış hizmetleri, süreç otomasyonu veya kurumsallaşma & büyüme danışmanlığı için ön görüşme yapabiliriz.
-            </p>
             
             {/* Top Centered Contact Links */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">

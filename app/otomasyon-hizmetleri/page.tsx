@@ -153,7 +153,6 @@ export default function OtomasyonHizmetleri() {
         <div className="rounded-3xl bg-[#6B0F1A] p-4 text-white sm:rounded-[2rem] sm:p-8 md:p-12 overflow-hidden">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Projenizi konuşalım.</h2>
-            <p className="mt-4 text-white/75">İş süreçleri analizi ve otomasyon hizmetleri için ön görüşme yapabiliriz.</p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <a href="mailto:cantug.sivri@gmail.com" className="group w-full sm:w-auto">
                 <div className="flex items-center justify-center gap-3 rounded-xl bg-white/10 px-6 py-3.5 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl">
