@@ -160,7 +160,7 @@ export default function CNTGLandingPage() {
 
 
       {/* CONTACT & CHATBOT SECTION */}
-      <section id="contact" className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-10 w-full">
+      <section id="contact" className="mx-auto max-w-7xl px-4 pt-12 pb-16 sm:px-6 sm:pt-20 sm:pb-24 lg:px-10 w-full">
         <div className="rounded-3xl bg-[#6B0F1A] p-4 text-white sm:rounded-[2rem] sm:p-8 md:p-12 overflow-hidden">
           <h2 className="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
             Projenizi konuşalım.
