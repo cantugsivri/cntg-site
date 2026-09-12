@@ -159,6 +159,20 @@ export default function CNTGLandingPage() {
 
 
 
+      {/* REFERENCES SECTION */}
+      <section id="references" className="mx-auto max-w-7xl px-4 pt-4 pb-4 sm:px-6 sm:pt-6 lg:px-10 w-full">
+        <div className="rounded-3xl bg-[#171717] p-8 sm:rounded-[2rem] sm:p-12 md:p-16">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-[-0.03em] sm:text-5xl md:text-6xl text-white">
+              Referanslarımız & İş Ortaklarımız
+            </h2>
+            <p className="mt-3 text-xs sm:text-sm font-medium tracking-wide text-white/50">
+              Birlikte Büyüdüğümüz Markalar ve Çalışmalarımız
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT & CHATBOT SECTION */}
       <section id="contact" className="mx-auto max-w-7xl px-4 pt-12 pb-16 sm:px-6 sm:pt-20 sm:pb-24 lg:px-10 w-full">
         <div className="rounded-3xl bg-[#6B0F1A] p-4 text-white sm:rounded-[2rem] sm:p-8 md:p-12 overflow-hidden">
