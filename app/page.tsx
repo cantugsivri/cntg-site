@@ -182,22 +182,34 @@ export default function CNTGLandingPage() {
               </div>
 
               {/* Selme */}
-              <div className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-white p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl">
+              <a
+                href="https://selme.com.tr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Selme - Web Sitesini Ziyaret Et"
+                className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-white p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl cursor-pointer"
+              >
                 <img
                   src="/references/selme.jpg"
                   alt="Selme"
                   className="h-full w-full object-contain"
                 />
-              </div>
+              </a>
 
               {/* Panista */}
-              <div className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-[#fbe7c6] p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl">
+              <a
+                href="https://www.linkedin.com/company/panista-bakery/?originalSubdomain=tr"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Panista - LinkedIn Profilini Ziyaret Et"
+                className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-[#fbe7c6] p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl cursor-pointer"
+              >
                 <img
                   src="/references/panista.jpg"
                   alt="Panista"
                   className="h-full w-full object-contain rounded-lg"
                 />
-              </div>
+              </a>
             </div>
           </div>
         </div>
