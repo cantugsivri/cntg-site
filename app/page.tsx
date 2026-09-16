@@ -169,6 +169,36 @@ export default function CNTGLandingPage() {
             <p className="mt-3 text-xs sm:text-sm font-medium tracking-wide text-white/50">
               Birlikte Büyüdüğümüz Markalar ve Çalışmalarımız
             </p>
+
+            {/* Logo Grid */}
+            <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8">
+              {/* Buseworld */}
+              <div className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-white p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl">
+                <img
+                  src="/references/buseworld.jpg"
+                  alt="Buseworld Production"
+                  className="h-full w-full object-contain"
+                />
+              </div>
+
+              {/* Selme */}
+              <div className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-white p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl">
+                <img
+                  src="/references/selme.jpg"
+                  alt="Selme"
+                  className="h-full w-full object-contain"
+                />
+              </div>
+
+              {/* Panista */}
+              <div className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-[#fbe7c6] p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl">
+                <img
+                  src="/references/panista.jpg"
+                  alt="Panista"
+                  className="h-full w-full object-contain rounded-lg"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
