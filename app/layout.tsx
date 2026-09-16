@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 import ScrollToTop from "./ScrollToTop";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body>
         <ScrollToTop />
         {children}
+        <Analytics />
       </body>
     </html>
   );
