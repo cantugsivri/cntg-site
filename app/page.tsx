@@ -55,7 +55,7 @@ export default function CNTGLandingPage() {
 
         <div className="relative mx-auto flex w-full max-w-7xl flex-col px-4 pb-10 pt-4 sm:px-6 sm:py-8 lg:px-10">
           {/* HEADER (PERFECTLY CENTERED LOGO) */}
-          <header className="relative flex items-center justify-center py-4 sm:py-6 border-b border-[#6B0F1A]/10">
+          <header className="relative flex flex-col items-center gap-3 py-4 sm:py-6 border-b border-[#6B0F1A]/10">
             <div className="flex flex-col items-center text-center">
               <div className="flex flex-col items-center w-[200px] sm:w-[280px] md:w-[320px]">
                 <div className="h-[2.5px] w-full bg-[#6B0F1A] mb-1"></div>
@@ -69,10 +69,10 @@ export default function CNTGLandingPage() {
               </div>
             </div>
             
-            <div className="absolute right-0 top-1/2 -translate-y-1/2">
+            <div className="sm:absolute sm:right-0 sm:top-1/2 sm:-translate-y-1/2">
               <a
                 href="#contact"
-                className="z-10 inline-flex items-center justify-center rounded-full bg-[#6B0F1A] px-3.5 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium text-white shadow-md transition hover:bg-[#530A13]"
+                className="z-10 inline-flex items-center justify-center rounded-full bg-[#6B0F1A] px-3 py-1 sm:px-5 sm:py-2 text-[10px] sm:text-sm font-medium text-white shadow-md transition hover:bg-[#530A13]"
               >
                 İletişime Geç <ArrowRight className="ml-1 sm:ml-1.5 h-3.5 w-3.5" />
               </a>
