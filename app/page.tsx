@@ -173,13 +173,19 @@ export default function CNTGLandingPage() {
             {/* Logo Grid */}
             <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8">
               {/* Buseworld */}
-              <div className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-white p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl">
+              <a
+                href="https://www.wearediscoland.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Buseworld Production - Web Sitesini Ziyaret Et"
+                className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-white p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl cursor-pointer"
+              >
                 <img
                   src="/references/buseworld.jpg"
                   alt="Buseworld Production"
                   className="h-full w-full object-contain"
                 />
-              </div>
+              </a>
 
               {/* Selme */}
               <a
@@ -208,6 +214,21 @@ export default function CNTGLandingPage() {
                   src="/references/panista.jpg"
                   alt="Panista"
                   className="h-full w-full object-contain rounded-lg"
+                />
+              </a>
+
+              {/* Alan Art & Coffee */}
+              <a
+                href="https://www.alanbodrum.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Alan Art & Coffee - Web Sitesini Ziyaret Et"
+                className="flex h-24 w-36 sm:h-28 sm:w-48 items-center justify-center rounded-2xl bg-[#b5a99a] p-3 sm:p-4 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-2xl cursor-pointer"
+              >
+                <img
+                  src="/references/alan.png"
+                  alt="Alan Art & Coffee"
+                  className="h-full w-full object-contain"
                 />
               </a>
             </div>
