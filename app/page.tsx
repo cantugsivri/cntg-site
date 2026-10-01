@@ -6,6 +6,7 @@ import {
   BarChart3,
   CheckCircle2,
   Linkedin,
+  Instagram,
   Mail,
   MapPinned,
   Network,
@@ -245,7 +246,7 @@ export default function CNTGLandingPage() {
             </h2>
             
             {/* Top Centered Contact Links */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 flex-wrap">
               <a href="mailto:cantug.sivri@gmail.com" className="group w-full sm:w-auto">
                 <div className="flex items-center justify-center gap-3 rounded-xl bg-white/10 px-6 py-3.5 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl">
                   <Mail className="h-5 w-5 text-[#D7B982]" />
@@ -256,6 +257,12 @@ export default function CNTGLandingPage() {
                 <div className="flex items-center justify-center gap-3 rounded-xl bg-white/10 px-6 py-3.5 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl">
                   <Linkedin className="h-5 w-5 text-[#D7B982]" />
                   <span className="text-sm sm:text-base font-medium">LinkedIn Profilimiz</span>
+                </div>
+              </a>
+              <a href="https://www.instagram.com/cntg.growthpartners/" target="_blank" rel="noopener noreferrer" className="group w-full sm:w-auto">
+                <div className="flex items-center justify-center gap-3 rounded-xl bg-white/10 px-6 py-3.5 ring-1 ring-white/10 transition group-hover:bg-white/20 sm:rounded-2xl">
+                  <Instagram className="h-5 w-5 text-[#D7B982]" />
+                  <span className="text-sm sm:text-base font-medium">Instagram Profilimiz</span>
                 </div>
               </a>
             </div>
